@@ -1,0 +1,207 @@
+{
+  "clients": [
+    {
+      "id": "1",
+      "names": "Sofia Diana",
+      "lastNames": "Bazan Dulanto",
+      "address": "1011 C Alfredo Salazar San Isidro",
+      "emailAddress": "sofibanzan@gmail.com",
+      "cellphonNumber": "999123456",
+      "avergaResponsability": 90,
+      "responseTime": 5,
+      "rate": 4.6,
+      "imagePath": ""
+    },
+    {
+      "id": "2",
+      "names": "Martin Fernando",
+      "lastNames": "Quevedo Mendoza",
+      "address": "Jr. Hipólito Archuleta # 297 Piso 7 San Miguel",
+      "emailAddress": "martinfer@gmail.com",
+      "cellphonNumber": "999123765",
+      "avergaResponsability": 85,
+      "responseTime": 7,
+      "rate": 4.2,
+      "imagePath": ""
+    },
+    {
+      "id": "3",
+      "names": "María Paula Daniela",
+      "lastNames": "Treviño Armas",
+      "address": "Urb. Felipe Salgado # 573 Lince",
+      "emailAddress": "maritre@gmail.com",
+      "cellphonNumber": "987654321",
+      "avergaResponsability": 95,
+      "responseTime": 4,
+      "rate": 4.5,
+      "imagePath": ""
+    }
+  ],
+  "languages": [
+    {
+      "id": "1",
+      "name": "Español"
+    },
+    {
+      "id": "1",
+      "name": "Ingles"
+    },
+    {
+      "id": "1",
+      "name": "Portugues"
+    },
+    {
+      "id": "1",
+      "name": "Frances"
+    }
+  ],
+  "clientLanguage": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "languageId": "1"
+    },
+    {
+      "id": "1",
+      "clientId": "1",
+      "languageId": "2"
+    }
+  ],
+  "clientSocialNetwork": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "address": "https://www.facebook.com/"
+    },
+    {
+      "id": "2",
+      "clientId": "1",
+      "address": "https://www.instagram.com/"
+    }
+  ],
+  "clientsComments": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "clientCommentId": "2",
+      "date": "14/8/2021",
+      "starts": 4,
+      "comment": "Considero que es una rentadora muy responsable. En mi atención preparó todos sus papeles y accesorios santiarios."
+    },
+    {
+      "id": "1",
+      "clientId": "1",
+      "clientCommentId": "3",
+      "date": "2/8/2021",
+      "starts": 5,
+      "comment": "Me atendió muy bien. El carro se encuentra en perfecto estado. Y además me dio consejos de cómo manejar ese vehículo"
+    }
+  ],
+  "cars": [
+    {
+      "id": "1",
+      "address": "1011 C Alfredo Salazar San Isidro",
+      "brand": "Ford",
+      "year": 2021,
+      "model": "Focus",
+      "mileage": 10000,
+      "seating": 4,
+      "manual": true,
+      "carValueInDollars": 13000,
+      "extraInformation": "El auto tiene asientos de cuero y llantas nuevas",
+      "imagePath": "image.png",
+      "rate": 4,
+      "rentAmountDay": 45,
+      "clientId": "1"
+    },
+    {
+      "id": "2",
+      "address": "Urb. Felipe Salgado # 573 Surco",
+      "brand": "Chevrolet",
+      "year": 2019,
+      "model": "Cruze",
+      "mileage": 12000,
+      "seating": 5,
+      "manual": true,
+      "carValueInDollars": 11000,
+      "extraInformation": "La pintura del auto es nueva.",
+      "imagePath": "image.png",
+      "rate": 5,
+      "rentAmountDay": 60,
+      "clientId": "2"
+    }
+  ],
+  "mechanicConditions": [
+    {
+      "id": "1",
+      "name": "Regular"
+    },
+    {
+      "id": "2",
+      "name": "Buena"
+    },
+    {
+      "id": "3",
+      "name": "Excelente"
+    }
+  ],
+  "carsMechanicCondition": [
+    {
+      "id": "1",
+      "carId": "1",
+      "mechanicConditionId": "2"
+    },
+    {
+      "id": "2",
+      "carId": "2",
+      "mechanicConditionId": "3"
+    }
+  ],
+  "categoryCars": [
+    {
+      "id": "1",
+      "name": "Pequeño"
+    },
+    {
+      "id": "2",
+      "name": "Medio"
+    },
+    {
+      "id": "3",
+      "name": "Largo"
+    },
+    {
+      "id": "4",
+      "name": "Premium"
+    },
+    {
+      "id": "5",
+      "name": "Monovolúmen"
+    },
+    {
+      "id": "6",
+      "name": "SUVs"
+    }
+  ],
+  "carCategoryCars": [
+    {
+      "id": "1",
+      "carId": "1",
+      "categoryCar": "2"
+    },
+    {
+      "id": "2",
+      "carId": "2",
+      "categoryCar": "2"
+    }
+  ],
+  "rents": [
+    {
+      "id": "1",
+      "startDate": "13/9/2021",
+      "finishDate": "15/9/2021",
+      "carId": "2",
+      "client": "1"
+    }
+  ]
+}
