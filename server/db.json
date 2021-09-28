@@ -6,8 +6,8 @@
       "lastNames": "Bazan Dulanto",
       "address": "1011 C Alfredo Salazar San Isidro",
       "emailAddress": "sofibanzan@gmail.com",
-      "cellphonNumber": "999123456",
-      "avergaResponsability": 90,
+      "cellphoneNumber": "999123456",
+      "averageResponsibility": 90,
       "responseTime": 5,
       "rate": 4.6,
       "imagePath": ""
@@ -18,8 +18,8 @@
       "lastNames": "Quevedo Mendoza",
       "address": "Jr. Hipólito Archuleta # 297 Piso 7 San Miguel",
       "emailAddress": "martinfer@gmail.com",
-      "cellphonNumber": "999123765",
-      "avergaResponsability": 85,
+      "cellphoneNumber": "999123765",
+      "averageResponsibility": 85,
       "responseTime": 7,
       "rate": 4.2,
       "imagePath": ""
@@ -30,8 +30,8 @@
       "lastNames": "Treviño Armas",
       "address": "Urb. Felipe Salgado # 573 Lince",
       "emailAddress": "maritre@gmail.com",
-      "cellphonNumber": "987654321",
-      "avergaResponsability": 95,
+      "cellphoneNumber": "987654321",
+      "averageResponsibility": 95,
       "responseTime": 4,
       "rate": 4.5,
       "imagePath": ""
@@ -40,22 +40,22 @@
   "languages": [
     {
       "id": "1",
-      "name": "Español"
+      "name": "Spanish"
     },
     {
       "id": "1",
-      "name": "Ingles"
+      "name": "English"
     },
     {
       "id": "1",
-      "name": "Portugues"
+      "name": "Portuguese"
     },
     {
       "id": "1",
-      "name": "Frances"
+      "name": "French"
     }
   ],
-  "clientLanguage": [
+  "clientLanguages": [
     {
       "id": "1",
       "clientId": "1",
@@ -67,7 +67,7 @@
       "languageId": "2"
     }
   ],
-  "clientSocialNetwork": [
+  "clientSocialNetworks": [
     {
       "id": "1",
       "clientId": "1",
@@ -86,7 +86,7 @@
       "clientCommentId": "2",
       "date": "14/8/2021",
       "starts": 4,
-      "comment": "Considero que es una rentadora muy responsable. En mi atención preparó todos sus papeles y accesorios santiarios."
+      "comment": "I consider that she is a very responsible renter. In my attention she prepared all the papers and sanitary accessories for her."
     },
     {
       "id": "1",
@@ -94,7 +94,7 @@
       "clientCommentId": "3",
       "date": "2/8/2021",
       "starts": 5,
-      "comment": "Me atendió muy bien. El carro se encuentra en perfecto estado. Y además me dio consejos de cómo manejar ese vehículo"
+      "comment": "He took good care of me. The car is in perfect condition. And also he gave me advice on how to drive that vehicle."
     }
   ],
   "cars": [
@@ -108,7 +108,7 @@
       "seating": 4,
       "manual": true,
       "carValueInDollars": 13000,
-      "extraInformation": "El auto tiene asientos de cuero y llantas nuevas",
+      "extraInformation": "The car has leather seats and new tires",
       "imagePath": "image.png",
       "rate": 4,
       "rentAmountDay": 45,
@@ -124,7 +124,7 @@
       "seating": 5,
       "manual": true,
       "carValueInDollars": 11000,
-      "extraInformation": "La pintura del auto es nueva.",
+      "extraInformation": "The paint on the car is new.",
       "imagePath": "image.png",
       "rate": 5,
       "rentAmountDay": 60,
@@ -138,14 +138,14 @@
     },
     {
       "id": "2",
-      "name": "Buena"
+      "name": "Good"
     },
     {
       "id": "3",
-      "name": "Excelente"
+      "name": "Excellent"
     }
   ],
-  "carsMechanicCondition": [
+  "carsMechanicConditions": [
     {
       "id": "1",
       "carId": "1",
@@ -160,15 +160,15 @@
   "categoryCars": [
     {
       "id": "1",
-      "name": "Pequeño"
+      "name": "Little"
     },
     {
       "id": "2",
-      "name": "Medio"
+      "name": "Medium"
     },
     {
       "id": "3",
-      "name": "Largo"
+      "name": "Large"
     },
     {
       "id": "4",
@@ -176,7 +176,7 @@
     },
     {
       "id": "5",
-      "name": "Monovolúmen"
+      "name": "Minivan"
     },
     {
       "id": "6",
