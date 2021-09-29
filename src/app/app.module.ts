@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
 import { MyCarComponent } from './my-car/pages/my-car/my-car.component';
 import { CarComponent } from './car/pages/car/car.component';
 import { MyFavouritesComponent } from './my-favourites/pages/my-favourites/my-favourites.component';
@@ -24,7 +25,8 @@ import { SubscriptionComponent } from './subscription/pages/subscription/subscri
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
