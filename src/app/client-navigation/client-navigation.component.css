@@ -1,17 +1,3 @@
-.div-component {
-  margin: 4px;
-}
-
-.a-href{
-  cursor: pointer;
-  text-decoration: underline;
-  color: blue;
-}
-
-.title-nav {
-  text-transform: capitalize;
-}
-
 .default-spacer {
   flex: 1 1 auto;
 }
