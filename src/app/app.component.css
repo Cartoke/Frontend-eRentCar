@@ -1,46 +1,12 @@
-.div-component {
-  margin: 4px;
+mat-toolbar {
+  background-color: #2196F3;;
 }
 
-.a-href{
-  cursor: pointer;
-  text-decoration: underline;
-  color: blue;
+img {
+  width: 150px;
+  height: 30px;
 }
 
-.title-nav {
-  text-transform: capitalize;
-}
-
-.default-spacer {
-  flex: 1 1 auto;
-}
-
-.header-image {
-  background-size: cover;
-}
-
-.sidenav-container {
-  height: 100%;
-  border: 1px solid rgba(111, 111, 111, 0.50);
-}
-
-.sidenav-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sidenav {
-  padding: 20px
-}
-
-.source-name {
-  margin-left: 5px;
-}
-
-.list-item:hover {
-  cursor: pointer;
-  background-color: #3f51b5;
-  color: white
+.menu-button {
+  margin-left: auto;
 }

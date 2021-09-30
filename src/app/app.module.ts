@@ -23,6 +23,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import { MyProfileComponent } from './my-profile/pages/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MyReservationsComponent,
     SearchCarComponent,
     SubscriptionComponent,
-    ClientNavigationComponent
+    ClientNavigationComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

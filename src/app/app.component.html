@@ -1,38 +1,31 @@
-<div *ngIf="controller == '/'; else elseBlock">
-  <div class="div-component">
-    <a (click)="changeController('client')" class="a-href">Client</a>
-  </div>
-  <div class="div-component">
-    <a (click)="changeController('owner')" class="a-href">Owner</a>
-  </div>
-</div>
-<ng-template #elseBlock>
-  <mat-toolbar color="primary">
-    <span class="title-nav">{{controller}}</span>
-  </mat-toolbar>
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened #sidenav class="sidenav-content">
-      <mat-nav-list>
-        <div *ngIf="controller == 'client'; else ownerBlock">
-          <mat-list-item
-            class="list-item" *ngFor="let item of itemsClient"
-            (click)="changeTo(item.url)"
-          >
-            <nav class="source-name">{{item.name}}</nav>
-          </mat-list-item>
-        </div>
-        <ng-template #ownerBlock>
-          <mat-list-item
-            class="list-item" *ngFor="let item of itemsOwner"
-            (click)="changeTo(item.url)"
-          >
-            <nav class="source-name">{{item.name}}</nav>
-          </mat-list-item>
-        </ng-template>
+<mat-toolbar>
+  <img src="assets/logo.png">
 
-      </mat-nav-list>
-    </mat-sidenav>
-    <router-outlet></router-outlet>
-  </mat-sidenav-container>
+  <button
+    mat-flat-button
+    class="menu-button"
+    [mat-menu-trigger-for]="menu"
+  >
+    <mat-icon matPrefix>
+      person
+    </mat-icon>
+    {{ clientData.names }}
+  </button>
 
-</ng-template>
+  <mat-menu
+    #menu
+    xPosition="before"
+  >
+    <button
+      mat-menu-item
+      *ngFor="let option of menuOptions"
+      [routerLink]="option.url"
+    >
+      {{ option.name }}
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<ng-container>
+  <router-outlet></router-outlet>
+</ng-container>

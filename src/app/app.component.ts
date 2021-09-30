@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import { Location } from '@angular/common';
+import {ClientService} from "./my-profile/services/client.service";
+import {Client} from "./my-profile/model/client";
 
 @Component({
   selector: 'app-root',
@@ -9,36 +9,29 @@ import { Location } from '@angular/common';
 })
 export class AppComponent implements OnInit{
   title = 'frontend-web-application-erentcar';
-  controller: String = '/';
-  itemsClient: Array<any> = [
-    { name:"Search Auto", url:"/client/cars" },
-    { name:"Reservations", url:"/client/reservations" },
-    { name:"My Favourites",  url:"/client/favourites" },
-    { name:"Sign Out", url:"/" }
+  currentClientId: string = "1";
+  clientData!: Client;
+  menuOptions = [
+    { name: "Search auto", url: `client/${(this.currentClientId)}/search` },
+    { name: "Reservations", url: `client/${(this.currentClientId)}/reservations` },
+    { name: "My cars", url: `client/${(this.currentClientId)}/my-car` },
+    { name: "Rentals", url: `client/${(this.currentClientId)}/rentals` },
+    { name: "My Favourites", url: `client/${(this.currentClientId)}/favourites` },
+    { name: "Subscription", url: `client/${(this.currentClientId)}/subscription` },
+    { name: "Sign Out", url: '' }
   ];
 
-  itemsOwner: Array<any> = [
-    { name:"My Car", url:"/owner/my-car" },
-    { name:"Rentals", url:"/owner/rentals" },
-    { name:"Subscription",  url:"/owner/subscription" },
-    { name:"Sign Out", url:"/" }
-  ];
-
-  constructor(private router: Router, private location: Location) {
-  }
-
-  changeTo(url: any) {
-    this.controller = url;
-    this.router.navigate([`${url}`]);
-  }
-
-  changeController(name: any) {
-    this.controller = name;
+  constructor(private clientService: ClientService) {
+    this.clientData = {} as Client;
   }
 
   ngOnInit(): void {
-    if(this.location.path() != '') {
-      this.controller = ''
-    }
+    this.getClient();
+  }
+
+  async getClient() {
+    await this.clientService.getById(this.currentClientId).subscribe((response: any) => {
+      this.clientData = response;
+    });
   }
 }
