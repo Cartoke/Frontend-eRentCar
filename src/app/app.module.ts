@@ -10,6 +10,19 @@ import { MyRentalsComponent } from './my-rentals/pages/my-rentals/my-rentals.com
 import { MyReservationsComponent } from './my-reservations/pages/my-reservations/my-reservations.component';
 import { SearchCarComponent } from './search-car/pages/search-car/search-car.component';
 import { SubscriptionComponent } from './subscription/pages/subscription/subscription.component';
+import { AppRoutingModule } from './app-routing.module';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatButtonModule} from "@angular/material/button";
+import { HttpClientModule } from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatInputModule} from "@angular/material/input";
+import { CardCarComponent } from './search-car/pages/card-car/card-car.component';
+import {FormsModule} from "@angular/forms";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -20,11 +33,24 @@ import { SubscriptionComponent } from './subscription/pages/subscription/subscri
     MyRentalsComponent,
     MyReservationsComponent,
     SearchCarComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    CardCarComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
