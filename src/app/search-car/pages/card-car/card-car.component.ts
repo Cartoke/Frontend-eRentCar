@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Car} from "../../model/car";
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {RentDialogComponent} from "../rent-dialog/rent-dialog.component";
 
 @Component({
   selector: 'app-card-car',
@@ -8,14 +11,27 @@ import {Car} from "../../model/car";
 })
 export class CardCarComponent implements OnInit {
   @Input() car!: Car;
+  @Input() clientId!: string;
   days: number = 1;
+  moreInformationUrl!: string;
 
-  constructor() { }
+  constructor(private router: Router, public rentDialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.moreInformationUrl = `${this.router.url}/car/${this.car.id}`;
   }
 
   getPrice(): number {
     return this.days * this.car.rentAmountDay;
+  }
+
+  openRentDialog(): void {
+    this.rentDialog.open(RentDialogComponent, {
+      width: '300px',
+      data: {
+        car: this.car,
+        clientId: this.clientId
+      }
+    });
   }
 }

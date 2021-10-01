@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
-import {Car} from "../../car/model/car";
+import {Car} from "../../search-car/model/car";
 
 @Injectable({
   providedIn: 'root'

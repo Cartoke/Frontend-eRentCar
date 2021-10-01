@@ -16,9 +16,8 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatInputModule} from "@angular/material/input";
 import { CardCarComponent } from './search-car/pages/card-car/card-car.component';
-import {FormsModule} from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import { ClientNavigationComponent } from './client-navigation/client-navigation.component';
-import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
 import {MatCheckboxModule} from "@angular/material/checkbox";
@@ -29,6 +28,11 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import { MyProfileComponent } from './my-profile/pages/my-profile/my-profile.component';
+import { RentDialogComponent } from './search-car/pages/rent-dialog/rent-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { MyProfileComponent } from './my-profile/pages/my-profile/my-profile.com
     SubscriptionComponent,
     CardCarComponent,
     ClientNavigationComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    RentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,8 +66,14 @@ import { MyProfileComponent } from './my-profile/pages/my-profile/my-profile.com
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

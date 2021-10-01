@@ -233,7 +233,8 @@
       "startDate": "13/9/2021",
       "finishDate": "15/9/2021",
       "carId": "2",
-      "client": "1"
+      "clientId": "1",
+      "paymentAmount": 180
     }
   ]
 }

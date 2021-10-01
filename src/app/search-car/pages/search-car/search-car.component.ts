@@ -3,6 +3,8 @@ import {CarsService} from "../../services/cars.service";
 import {Car} from "../../model/car";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatDrawer} from "@angular/material/sidenav";
+import {FormGroup, FormControl} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-search-car',
@@ -15,11 +17,25 @@ export class SearchCarComponent implements OnInit {
   transmissions: string[] = ["Manual", "Transmission"];
   categoriesOfCars: string[] = ["Little", "Medium", "Large", "Premium", "Minivan", "SUVs"];
   carsData: Car[];
+  clientId: string;
+  date: FormGroup;
+  today: Date;
 
   @ViewChild(MatDrawer) drawer!: MatDrawer;
 
-  constructor(private carsService: CarsService, private observer: BreakpointObserver) {
+  constructor(private carsService: CarsService, private observer: BreakpointObserver, private route: ActivatedRoute) {
     this.carsData = [];
+    this.clientId = route.snapshot.params.clientId;
+
+    this.today = new Date();
+    const day = this.today.getDate();
+    const month = this.today.getMonth();
+    const year = this.today.getFullYear();
+
+    this.date = new FormGroup({
+      start: new FormControl(new Date(year, month, day)),
+      end: new FormControl(new Date(year, month, day))
+    });
   }
 
   ngOnInit(): void {
@@ -41,8 +57,8 @@ export class SearchCarComponent implements OnInit {
     }, 0);
   }
 
-  async getAllCars() {
-    await this.carsService.getAll().subscribe((response: any) => {
+  getAllCars() {
+    this.carsService.getAll().subscribe((response: any) => {
       this.carsData = response;
     });
   }

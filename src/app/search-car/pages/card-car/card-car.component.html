@@ -1,11 +1,12 @@
 <mat-card>
-  <img src="assets/cars-images/{{ car.imagePath }}">
+  <img src="assets/cars-images/{{ car.imagePath }}" alt="car image">
   <div class="car-information">
     <mat-card-title>{{ car.brand }} {{ car.model }}</mat-card-title>
     <span>Seating: {{ car.seating }}</span>
     <span>Transmission: {{ car.manual ? "Manual" : "Automatic" }}</span>
     <span>Mileage: {{ car.mileage }}</span>
     <span>Year: {{ car.year }}</span>
+    <a [routerLink]="moreInformationUrl">See more</a>
   </div>
   <div class="rentInformation">
     <span>
@@ -16,7 +17,11 @@
       days
     </span>
     <span class="rent-price">$ {{ getPrice() }}</span>
-    <button mat-raised-button class="rent-car-button accent">
+    <button
+      mat-raised-button
+      class="rent-car-button accent"
+      (click)="openRentDialog()"
+    >
       Rent Car
     </button>
   </div>

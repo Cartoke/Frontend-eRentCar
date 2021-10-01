@@ -7,16 +7,17 @@ import {MyReservationsComponent} from "./my-reservations/pages/my-reservations/m
 import {SearchCarComponent} from "./search-car/pages/search-car/search-car.component";
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
-import {AppComponent} from "./app.component";
+import {CarComponent} from "./car/pages/car/car.component";
 
 const routes: Routes = [
-  {path: 'client/:id/my-car',  component: MyCarComponent},
-  {path: 'client/:id/favourites', component: MyFavouritesComponent},
-  {path: 'client/:id/rentals', component: MyRentalsComponent},
-  {path: 'client/:id/reservations', component: MyReservationsComponent},
-  {path: 'client/:id/search', component: SearchCarComponent},
-  {path: 'client/:id/subscription', component: SubscriptionComponent},
-  {path: 'client/:id', component: ClientNavigationComponent}
+  {path: 'client/:clientId/my-car',  component: MyCarComponent},
+  {path: 'client/:clientId/favourites', component: MyFavouritesComponent},
+  {path: 'client/:clientId/rentals', component: MyRentalsComponent},
+  {path: 'client/:clientId/reservations', component: MyReservationsComponent},
+  {path: 'client/:clientId/search', component: SearchCarComponent},
+  {path: 'client/:clientId/subscription', component: SubscriptionComponent},
+  {path: 'client/:clientId', component: ClientNavigationComponent},
+  {path: 'client/:clientId/search/car/:carId', component: CarComponent}
 ];
 
 @NgModule({

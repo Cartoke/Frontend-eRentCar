@@ -63,16 +63,19 @@
           <input type="text" matInput>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-icon matPrefix>today</mat-icon>
-          <mat-label>Enter start date</mat-label>
-          <input type="text" matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-icon matPrefix>today</mat-icon>
-          <mat-label>Enter finish date</mat-label>
-          <input type="text" matInput>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Rental Date</mat-label>
+          <mat-date-range-input
+            [formGroup]="date"
+            [rangePicker]="pickerDate"
+            [comparisonStart]="date.value.start"
+            [comparisonEnd]="date.value.end"
+            [min]="today">
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="pickerDate"></mat-datepicker-toggle>
+          <mat-date-range-picker #pickerDate></mat-date-range-picker>
         </mat-form-field>
 
         <button
@@ -87,6 +90,7 @@
     <app-card-car
       *ngFor="let car of carsData"
       [car]="car"
+      [clientId]="clientId"
     ></app-card-car>
   </mat-drawer-content>
 </mat-drawer-container>

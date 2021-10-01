@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {Car} from "../model/car";
 import {catchError, retry} from "rxjs/operators";
+import {Rent} from "../model/rent";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarsService {
-  basePath = "http://localhost:3000/api/v1/cars";
+export class RentCarService {
+  basePath = "http://localhost:3000/api/v1/rents";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,16 +32,16 @@ export class CarsService {
     return throwError("Something happened with request, please try again later");
   }
 
-  getAll(): Observable<Car> {
-    return this.http.get<Car>(this.basePath, this.httpOptions)
+  getById(id: any): Observable<Rent> {
+    return this.http.get<Rent>(`${ this.basePath}/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  getById(id: any): Observable<Car> {
-    return this.http.get<Car>(`${ this.basePath }/${ id }`, this.httpOptions)
+  create(item: any): Observable<Rent> {
+    return this.http.post<Rent>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
