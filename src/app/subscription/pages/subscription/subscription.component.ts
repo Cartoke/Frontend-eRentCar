@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SubscriptionService} from "../../services/subscription.service";
+import {Plan} from "../../model/plan";
 
 @Component({
   selector: 'app-subscription',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subscription.component.css']
 })
 export class SubscriptionComponent implements OnInit {
+  plans!: Plan[];
 
-  constructor() { }
+  constructor(private subscriptionService: SubscriptionService) { }
 
   ngOnInit(): void {
+    this.getPlans();
   }
+
+  getPlans() {
+    this.subscriptionService.getPlans().subscribe((response: any) => {
+      this.plans = response;
+    });
+  }
+
 
 }

@@ -236,5 +236,53 @@
       "clientId": "1",
       "paymentAmount": 180
     }
+  ],
+  "plans": [
+    {
+      "id": "1",
+      "name": "Regular",
+      "benefits": [
+        "Rent one car",
+        "Custom statistics"
+      ],
+      "price": 20
+    },
+    {
+      "id": "2",
+      "name": "Silver",
+      "benefits": [
+        "Rent three cars",
+        "Custom statistics"
+      ],
+      "price": 40
+    },
+    {
+      "id": "3",
+      "name": "Gold",
+      "benefits": [
+        "Rent up to ten cars",
+        "Custom statistics",
+        "Fault record",
+        "Reminders"
+      ],
+      "price": 60
+    }
+  ],
+  "clientPlan": [
+    {
+      "id": "1",
+      "planId": "1",
+      "clientId": "1"
+    },
+    {
+      "id": "2",
+      "planId": "2",
+      "clientId": "2"
+    },
+    {
+      "id": "3",
+      "planId": "3",
+      "clientId": "3"
+    }
   ]
 }
