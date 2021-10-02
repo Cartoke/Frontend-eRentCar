@@ -4,6 +4,6 @@ Feature: User rents a car
 
     Scenario: User is in search section
 
-    Given the user is in the search section
-    When i rent the car
-    Then the view will show you a dialog window to confirm the action
+        Given the user is in the search section
+        When i rent the car
+        Then the view will show you a dialog window to confirm the action

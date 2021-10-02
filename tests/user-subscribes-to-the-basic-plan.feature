@@ -4,6 +4,6 @@ Feature: User subscribes to plan
 
     Scenario: User is in the Subscription section
 
-    Given the user wants the basic plan
-    When get it
-    Then the system will assign your credentials to you.
+        Given the user wants the basic plan
+        When get it
+        Then the system will assign your credentials to you.
