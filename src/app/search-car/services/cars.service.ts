@@ -47,4 +47,20 @@ export class CarsService {
         catchError(this.handleError)
       );
   }
+
+  create(item: any): Observable<Car> {
+    return this.http.post<Car>(this.basePath, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  update(id: any, item: any): Observable<Car> {
+    return this.http.put<Car>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
 }

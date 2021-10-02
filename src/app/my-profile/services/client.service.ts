@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Client} from "../model/client";
 import {catchError, retry} from "rxjs/operators";
+import {Car} from "../../search-car/model/car";
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,14 @@ export class ClientService {
 
   getAll(): Observable<Client> {
     return this.http.get<Client>(this.basePath, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  getCarsByIdClient(id: any): Observable<Car> {
+    return this.http.get<Car>(`${this.basePath}/${id}/cars`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

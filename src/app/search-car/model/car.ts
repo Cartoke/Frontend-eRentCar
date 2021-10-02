@@ -8,7 +8,7 @@ export interface Car {
   seating: number;
   manual: boolean;
   carValueInDollars: number;
-  extraInformation: number;
+  extraInformation: string;
   imagePath: string;
   rate: number;
   rentAmountDay: number;

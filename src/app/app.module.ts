@@ -33,6 +33,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { CardMyCarComponent } from './my-car/pages/card-my-car/card-my-car.component';
+import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-dialog.component";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     CardCarComponent,
     ClientNavigationComponent,
     MyProfileComponent,
-    RentDialogComponent
+    RentDialogComponent,
+    CardMyCarComponent,
+    EditCarDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
