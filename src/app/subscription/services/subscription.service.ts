@@ -41,4 +41,11 @@ export class SubscriptionService {
         retry(2),
         catchError(this.handleError))
   }
+
+  getById(id: any): Observable<Plan> {
+    return this.http.get<Plan>(`${this.basePath}/${id}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
 }

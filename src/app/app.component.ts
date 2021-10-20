@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {ClientService} from "./my-profile/services/client.service";
 import {Client} from "./my-profile/model/client";
 
@@ -28,10 +28,10 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.getClient();
   }
-
   async getClient() {
     await this.clientService.getById(this.currentClientId).subscribe((response: any) => {
       this.clientData = response;
+      localStorage.setItem('clientData', JSON.stringify(response));
     });
   }
 }

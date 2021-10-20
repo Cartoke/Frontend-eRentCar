@@ -9,4 +9,5 @@ export interface Client {
   responseTime: number;
   rate: number;
   imagePath: string;
+  planId: string;
 }

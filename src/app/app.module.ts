@@ -36,6 +36,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { CardMyCarComponent } from './my-car/pages/card-my-car/card-my-car.component';
 import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-dialog.component";
 import {MatRadioModule} from "@angular/material/radio";
+import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
+import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import {MatRadioModule} from "@angular/material/radio";
     MyProfileComponent,
     RentDialogComponent,
     CardMyCarComponent,
-    EditCarDialogComponent
+    EditCarDialogComponent,
+    CardMySubscriptionComponent,
+    ShowPlansComponent
   ],
   imports: [
     BrowserModule,

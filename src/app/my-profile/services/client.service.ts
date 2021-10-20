@@ -74,6 +74,14 @@ export class ClientService {
       );
   }
 
+  partialUpdate(id: any, item: any): Observable<Client> {
+    return this.http.patch<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
   delete(id: any) {
     return this.http.delete(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
