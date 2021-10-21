@@ -9,7 +9,7 @@ import {MyFavourites} from "../model/my-favourites";
   providedIn: 'root'
 })
 export class MyFavouritesService {
-  basePath = "http://localhost:3000/api/v1/Favourites"
+  basePath = "http://localhost:3000/api/v1/favourites"
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,7 +36,7 @@ export class MyFavouritesService {
     return throwError('Something happened with request, please try again later');
   }
 
-  // Create Student
+  // Create Favourite
   create(item: any): Observable<MyFavourites> {
     return this.http.post<MyFavourites>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(
@@ -44,7 +44,7 @@ export class MyFavouritesService {
         catchError(this.handleError))
   }
 
-  // Get Student by Id
+  // Get Favourite by Id
   getById(id: any): Observable<MyFavourites> {
     return this.http.get<MyFavourites>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(
@@ -52,7 +52,15 @@ export class MyFavouritesService {
         catchError(this.handleError))
   }
 
-  // Get All Students
+  // Get Favourite by CarId
+  getByCar(carId: any, userId: any): Observable<MyFavourites> {
+    return this.http.get<MyFavourites>(`${this.basePath}?carId=${carId}&userId=${userId}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
+
+  // Get All Favourite
   getAll(): Observable<MyFavourites> {
     return this.http.get<MyFavourites>(this.basePath, this.httpOptions)
       .pipe(
@@ -60,15 +68,15 @@ export class MyFavouritesService {
         catchError(this.handleError))
   }
 
-  // Update Student
+  // Update Favourite
   update(id: any, item: any): Observable<MyFavourites> {
-    return this.http.post<MyFavourites>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<MyFavourites>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError))
   }
 
-  // Delete Student
+  // Delete Favourite
   delete(id: any): Observable<MyFavourites> {
     return this.http.delete<MyFavourites>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(

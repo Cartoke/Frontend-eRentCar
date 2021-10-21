@@ -2,6 +2,26 @@
   <div>
     <button mat-raised-button (click)="goBack()">Back</button>
   </div>
+  <div class="favorite-button">
+    <div *ngIf="isFavourite; else elseTemplate">
+      <button
+        mat-fab color="warn"
+        aria-label=favorite
+        (click)="deleteFavourite()"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
+    <ng-template #elseTemplate>
+      <button
+        mat-fab color="gray"
+        aria-label=favorite
+        (click)="addFavourite()"
+      >
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+    </ng-template>
+  </div>
   <mat-divider></mat-divider>
   <div class="container-data">
     <img *ngIf="carData.imagePath != null" src="assets/cars-images/{{ carData.imagePath }}" alt="car image">

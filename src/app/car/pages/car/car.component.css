@@ -85,3 +85,7 @@ p {
 .rent > button {
   margin: 0 auto 0;
 }
+
+.favorite-button {
+  margin-left: auto;
+}
