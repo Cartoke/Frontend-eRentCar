@@ -6,6 +6,8 @@ import {Location} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {RentDialogComponent} from "../../../search-car/pages/rent-dialog/rent-dialog.component";
 import {MyFavouritesService} from "../../../my-favourites/services/my-favourites.service";
+import {MyFavourites} from "../../../my-favourites/model/my-favourites";
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-car',
@@ -17,8 +19,13 @@ export class CarComponent implements OnInit {
   carData!: Car;
   clientId!: string;
   days: number = 1;
+
   isFavourite = false;
-  favouriteId!: string;
+  favourite: MyFavourites = {
+    carId: "",
+    clientId: "",
+    id: ""
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +54,7 @@ export class CarComponent implements OnInit {
     this.favouriteService.getByCar(this.carId, this.clientId).subscribe((response: any) => {
       if(response.length > 0){
         this.isFavourite = true;
-        this.favouriteId = response[0].id
+        this.favourite = response[0];
       }
     });
   }
@@ -71,20 +78,18 @@ export class CarComponent implements OnInit {
   }
 
   async addFavourite() {
-    await this.favouriteService.create({
-      "carId": this.carId,
-      "clientId": this.clientId
-    }).subscribe((response: any) => {
-      this.isFavourite = true
-      this.favouriteId = response.id
-      console.log(response)
+    this.favourite.carId = this.carId;
+    this.favourite.clientId = this.clientId;
+    this.favourite.id = uuid();
+    await this.favouriteService.create(this.favourite).subscribe((response: any) => {
+      this.isFavourite = true;
+      this.favourite = response;
     })
   }
 
-  async deleteFavourite() {
-    await this.favouriteService.delete(this.favouriteId).subscribe((response: any) => {
+  async deleteFavourite(id: string) {
+    await this.favouriteService.delete(id).subscribe((response: any) => {
       this.isFavourite = false;
-      this.favouriteId = "";
     })
   }
 }
