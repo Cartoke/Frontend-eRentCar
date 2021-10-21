@@ -31,11 +31,11 @@ const routes: Routes = [
     path: 'client',
     component: ClientNavigationComponent,
     children: [
+      {path: ':clientId', component: SearchCarComponent},
       {path: ':clientId/my-car',  component: MyCarComponent},
       {path: ':clientId/favourites', component: MyFavouritesComponent},
       {path: ':clientId/rentals', component: MyRentalsComponent},
       {path: ':clientId/reservations', component: MyReservationsComponent},
-      {path: ':clientId/search', component: SearchCarComponent},
       {path: ':clientId/subscription', component: SubscriptionComponent, data: JSON.parse(auxUser)},
       {path: ':clientId', component: ClientNavigationComponent},
       {path: ':clientId/search/car/:carId', component: CarComponent}

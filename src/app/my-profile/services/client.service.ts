@@ -66,6 +66,14 @@ export class ClientService {
       );
   }
 
+  getByEmailAndPassword(email: any, password: any): Observable<Client> {
+    return this.http.get<Client>(`${this.basePath}?email=${email}&password=${password}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
   update(id: any, item: any): Observable<Client> {
     return this.http.post<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(
