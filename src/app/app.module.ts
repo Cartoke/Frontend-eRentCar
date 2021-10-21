@@ -42,6 +42,7 @@ import { HomeComponent } from './freeviews/pages/home/home.component';
 import { AboutComponent } from './freeviews/pages/about/about.component';
 import { LoginComponent } from './freeviews/pages/login/login.component';
 import { RegisterComponent } from './freeviews/pages/register/register.component';
+import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { RegisterComponent } from './freeviews/pages/register/register.component
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FreeviewComponent
   ],
   imports: [
     BrowserModule,

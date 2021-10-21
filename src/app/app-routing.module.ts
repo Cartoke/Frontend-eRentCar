@@ -12,22 +12,35 @@ import {HomeComponent} from "./freeviews/pages/home/home.component";
 import {AboutComponent} from "./freeviews/pages/about/about.component";
 import {LoginComponent} from "./freeviews/pages/login/login.component";
 import {RegisterComponent} from "./freeviews/pages/register/register.component";
+import {FreeviewComponent} from "./freeviews/pages/freeview/freeview.component";
 
 const auxUser: any = localStorage.getItem('clientData');
 
 const routes: Routes = [
-  {path: '',  component: HomeComponent},
-  {path: 'about',  component: AboutComponent},
-  {path: 'login',  component: LoginComponent},
-  {path: 'register',  component: RegisterComponent},
-  {path: 'client/:clientId/my-car',  component: MyCarComponent},
-  {path: 'client/:clientId/favourites', component: MyFavouritesComponent},
-  {path: 'client/:clientId/rentals', component: MyRentalsComponent},
-  {path: 'client/:clientId/reservations', component: MyReservationsComponent},
-  {path: 'client/:clientId/search', component: SearchCarComponent},
-  {path: 'client/:clientId/subscription', component: SubscriptionComponent, data: JSON.parse(auxUser)},
-  {path: 'client/:clientId', component: ClientNavigationComponent},
-  {path: 'client/:clientId/search/car/:carId', component: CarComponent}
+  {
+    path: '',
+    component: FreeviewComponent,
+    children: [
+      {path: '',  component: HomeComponent},
+      {path: 'about',  component: AboutComponent},
+      {path: 'login',  component: LoginComponent},
+      {path: 'register',  component: RegisterComponent},
+    ]
+  },
+  {
+    path: 'client',
+    component: ClientNavigationComponent,
+    children: [
+      {path: ':clientId/my-car',  component: MyCarComponent},
+      {path: ':clientId/favourites', component: MyFavouritesComponent},
+      {path: ':clientId/rentals', component: MyRentalsComponent},
+      {path: ':clientId/reservations', component: MyReservationsComponent},
+      {path: ':clientId/search', component: SearchCarComponent},
+      {path: ':clientId/subscription', component: SubscriptionComponent, data: JSON.parse(auxUser)},
+      {path: ':clientId', component: ClientNavigationComponent},
+      {path: ':clientId/search/car/:carId', component: CarComponent}
+    ]
+  }
 ];
 
 @NgModule({
