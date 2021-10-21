@@ -288,5 +288,21 @@
       "clientId": "3"
     }
   ],
-  "favourites": []
+  "favourites": [
+    {
+      "carId": "1",
+      "clientId": "1",
+      "id": "3949f33e-27b9-4824-bc83-4593b207dd12"
+    },
+    {
+      "carId": "4",
+      "clientId": "1",
+      "id": "00aa51fd-ea8d-4c10-ad8a-5afb27f06b83"
+    },
+    {
+      "carId": "4",
+      "clientId": "2",
+      "id": "00aa51fd-ea8d-4c10-ad8a-5afb27f06b83"
+    }
+  ]
 }

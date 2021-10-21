@@ -54,7 +54,15 @@ export class MyFavouritesService {
 
   // Get Favourite by CarId
   getByCar(carId: any, userId: any): Observable<MyFavourites> {
-    return this.http.get<MyFavourites>(`${this.basePath}?carId=${carId}&userId=${userId}`, this.httpOptions)
+    return this.http.get<MyFavourites>(`${this.basePath}?carId=${carId}&clientId=${userId}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
+
+  // Get Favourite by ClientId
+  getByClient(clientId: any): Observable<MyFavourites> {
+    return this.http.get<MyFavourites>(`${this.basePath}?&clientId=${clientId}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError))

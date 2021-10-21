@@ -38,6 +38,7 @@ import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-d
 import {MatRadioModule} from "@angular/material/radio";
 import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
 import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
+import { FavCardCarComponent } from './my-favourites/pages/fav-card-car/fav-card-car.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.c
     CardMyCarComponent,
     EditCarDialogComponent,
     CardMySubscriptionComponent,
-    ShowPlansComponent
+    ShowPlansComponent,
+    FavCardCarComponent
   ],
   imports: [
     BrowserModule,
