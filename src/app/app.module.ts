@@ -38,6 +38,10 @@ import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-d
 import {MatRadioModule} from "@angular/material/radio";
 import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
 import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
+import { HomeComponent } from './freeviews/pages/home/home.component';
+import { AboutComponent } from './freeviews/pages/about/about.component';
+import { LoginComponent } from './freeviews/pages/login/login.component';
+import { RegisterComponent } from './freeviews/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.c
     CardMyCarComponent,
     EditCarDialogComponent,
     CardMySubscriptionComponent,
-    ShowPlansComponent
+    ShowPlansComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

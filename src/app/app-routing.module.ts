@@ -8,10 +8,18 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
+import {HomeComponent} from "./freeviews/pages/home/home.component";
+import {AboutComponent} from "./freeviews/pages/about/about.component";
+import {LoginComponent} from "./freeviews/pages/login/login.component";
+import {RegisterComponent} from "./freeviews/pages/register/register.component";
 
 const auxUser: any = localStorage.getItem('clientData');
 
 const routes: Routes = [
+  {path: '',  component: HomeComponent},
+  {path: 'about',  component: AboutComponent},
+  {path: 'login',  component: LoginComponent},
+  {path: 'register',  component: RegisterComponent},
   {path: 'client/:clientId/my-car',  component: MyCarComponent},
   {path: 'client/:clientId/favourites', component: MyFavouritesComponent},
   {path: 'client/:clientId/rentals', component: MyRentalsComponent},
