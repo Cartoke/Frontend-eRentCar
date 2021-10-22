@@ -19,6 +19,7 @@ export class ClientNavigationComponent implements OnInit {
     { name: "Rentals", url: 'rentals' },
     { name: "My Favourites", url: 'favourites' },
     { name: "Subscription", url: 'subscription' },
+    { name: "My Profile", url: 'profile'}
   ];
 
   constructor(private clientService: ClientService) {
