@@ -5,20 +5,20 @@
       "names": "Sofia Diana",
       "lastNames": "Bazan Dulanto",
       "address": "1011 C Alfredo Salazar San Isidro",
-      "emailAddress": "sofibanzan@gmail.com",
       "cellphoneNumber": "999123456",
       "averageResponsibility": 90,
       "responseTime": 5,
       "rate": 4.6,
       "imagePath": "",
-      "planId": ""
+      "planId": "",
+      "email": "sofiabaz@gmail.com",
+      "password": "sofiabaz"
     },
     {
       "id": "2",
       "names": "Martin Fernando",
       "lastNames": "Quevedo Mendoza",
       "address": "Jr. Hipólito Archuleta # 297 Piso 7 San Miguel",
-      "emailAddress": "martinfer@gmail.com",
       "cellphoneNumber": "999123765",
       "averageResponsibility": 85,
       "responseTime": 7,
@@ -33,7 +33,6 @@
       "names": "María Paula Daniela",
       "lastNames": "Treviño Armas",
       "address": "Urb. Felipe Salgado # 573 Lince",
-      "emailAddress": "maritre@gmail.com",
       "cellphoneNumber": "987654321",
       "averageResponsibility": 95,
       "responseTime": 4,
@@ -42,6 +41,20 @@
       "planId": "3",
       "email": "mariatrevi@gmail.com",
       "password": "mariatrevi"
+    },
+    {
+      "id": "d0be1a85-83b1-42aa-ba08-67092c941e87",
+      "names": "sebastian",
+      "lastNames": "bran",
+      "address": "los angeles",
+      "cellphoneNumber": "los angeles",
+      "averageResponsibility": -1,
+      "responseTime": -1,
+      "rate": -1,
+      "imagePath": "",
+      "planId": "",
+      "email": "sebas@gmail.com",
+      "password": "Sebas123"
     }
   ],
   "languages": [

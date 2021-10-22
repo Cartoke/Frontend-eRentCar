@@ -82,6 +82,14 @@ export class ClientService {
       );
   }
 
+  getByEmail(email: any): Observable<Client> {
+    return this.http.get<Client>(`${this.basePath}?email=${email}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
   update(id: any, item: any): Observable<Client> {
     return this.http.post<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(

@@ -44,6 +44,7 @@ import { AboutComponent } from './freeviews/pages/about/about.component';
 import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component
     MatNativeDateModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
