@@ -19,7 +19,6 @@ export class ClientNavigationComponent implements OnInit {
     { name: "Rentals", url: 'rentals' },
     { name: "My Favourites", url: 'favourites' },
     { name: "Subscription", url: 'subscription' },
-    { name: "Sign Out", url: '' }
   ];
 
   constructor(private clientService: ClientService) {
@@ -35,6 +34,10 @@ export class ClientNavigationComponent implements OnInit {
     this.clientService.getById(this.currentClientId).subscribe((response: any) => {
       this.clientData = response;
     });
+  }
+
+  signOut() {
+    localStorage.removeItem("clientId");
   }
 }
 
