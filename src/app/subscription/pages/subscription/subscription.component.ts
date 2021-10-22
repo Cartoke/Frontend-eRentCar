@@ -3,6 +3,7 @@ import {SubscriptionService} from "../../services/subscription.service";
 import {Plan} from "../../model/plan";
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../my-profile/services/client.service";
+import {Client} from "../../../my-profile/model/client";
 
 @Component({
   selector: 'app-subscription',
@@ -11,38 +12,37 @@ import {ClientService} from "../../../my-profile/services/client.service";
 })
 export class SubscriptionComponent implements OnInit {
   plans!: Plan[];
-  myPlanId!: string;
-  myId!: string;
+  clientData!: Client;
 
   constructor(
     private subscriptionService: SubscriptionService,
     private clientService: ClientService,
-    private route: ActivatedRoute
   )  { }
 
   ngOnInit(): void {
     this.retrievePlans();
-    this.route.data.subscribe(response => {
-      this.myPlanId = response.planId;
-      this.myId = response.id;
+    this.retrieveClient();
+  }
+
+  retrieveClient(): void {
+    let clientId: string | null = localStorage.getItem('clientId');
+
+    this.clientService.getById(clientId).subscribe((response: any) => {
+      this.clientData = response;
     });
   }
 
-
-  async retrievePlans() {
-    await this.subscriptionService.getPlans().subscribe((response: any) => {
+  retrievePlans() {
+    this.subscriptionService.getPlans().subscribe((response: any) => {
       this.plans = response;
     });
   }
 
   deletePlanStatusChange(ev: any) {
-    this.myPlanId = ev;
+    this.clientData.planId = ev;
   }
 
   createPlanStatusChange(ev: any) {
-    this.myPlanId = ev;
+    this.clientData.planId = ev;
   }
-
-
-
 }

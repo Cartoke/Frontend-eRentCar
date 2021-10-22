@@ -10,7 +10,7 @@ import {EditCarDialogComponent} from "../edit-car-dialog/edit-car-dialog.compone
 })
 export class CardMyCarComponent implements OnInit {
   @Input() car!: Car;
-  @Input() clientId!: string;
+  @Input() clientId!: string | null;
 
   constructor(public editCarDialog: MatDialog) { }
 

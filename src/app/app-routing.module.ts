@@ -8,20 +8,44 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
+
 import {MyProfileComponent} from "./my-profile/pages/my-profile/my-profile.component";
 
 const auxUser: any = localStorage.getItem('clientData');
 
+
+import {HomeComponent} from "./freeviews/pages/home/home.component";
+import {AboutComponent} from "./freeviews/pages/about/about.component";
+import {LoginComponent} from "./freeviews/pages/login/login.component";
+import {RegisterComponent} from "./freeviews/pages/register/register.component";
+import {FreeviewComponent} from "./freeviews/pages/freeview/freeview.component";
+
 const routes: Routes = [
-  {path: 'client/:clientId/my-car',  component: MyCarComponent},
-  {path: 'client/:clientId/favourites', component: MyFavouritesComponent},
-  {path: 'client/:clientId/rentals', component: MyRentalsComponent},
-  {path: 'client/:clientId/reservations', component: MyReservationsComponent},
-  {path: 'client/:clientId/search', component: SearchCarComponent},
-  {path: 'client/:clientId/subscription', component: SubscriptionComponent, data: JSON.parse(auxUser)},
-  {path: 'client/:clientId', component: ClientNavigationComponent},
-  {path: 'client/:clientId/search/car/:carId', component: CarComponent},
-  {path: 'client/:clientId/profile', component: MyProfileComponent}
+  {
+    path: '',
+    component: FreeviewComponent,
+    children: [
+      {path: '',  component: HomeComponent},
+      {path: 'about',  component: AboutComponent},
+      {path: 'login',  component: LoginComponent},
+      {path: 'register',  component: RegisterComponent},
+    ]
+  },
+  {
+    path: 'client',
+    component: ClientNavigationComponent,
+    children: [
+      {path: 'search', component: SearchCarComponent},
+      {path: 'my-car',  component: MyCarComponent},
+      {path: 'favourites', component: MyFavouritesComponent},
+      {path: 'rentals', component: MyRentalsComponent},
+      {path: 'reservations', component: MyReservationsComponent},
+      {path: 'subscription', component: SubscriptionComponent},
+      {path: 'profile', component: MyProfileComponent},
+      {path: 'search/car/:carId', component: CarComponent}
+    ]
+  }
+
 ];
 
 @NgModule({

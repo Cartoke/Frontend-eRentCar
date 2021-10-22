@@ -17,15 +17,15 @@ export class SearchCarComponent implements OnInit {
   transmissions: string[] = ["Manual", "Transmission"];
   categoriesOfCars: string[] = ["Little", "Medium", "Large", "Premium", "Minivan", "SUVs"];
   carsData: Car[];
-  clientId: string;
+  clientId: string | null;
   date: FormGroup;
   today: Date;
 
   @ViewChild(MatDrawer) drawer!: MatDrawer;
 
-  constructor(private carsService: CarsService, private observer: BreakpointObserver, private route: ActivatedRoute) {
+  constructor(private carsService: CarsService, private observer: BreakpointObserver) {
     this.carsData = [];
-    this.clientId = route.snapshot.params.clientId;
+    this.clientId = localStorage.getItem('clientId');
 
     this.today = new Date();
     const day = this.today.getDate();
