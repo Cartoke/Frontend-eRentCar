@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
       names: this.personalInformationForm.value.names,
       lastNames: this.personalInformationForm.value.lastNames,
       address: this.personalInformationForm.value.address,
-      cellphoneNumber: this.personalInformationForm.value.address,
+      cellphoneNumber: this.personalInformationForm.value.cellphoneNumber,
       averageResponsibility: -1,
       responseTime: -1,
       rate: -1,
