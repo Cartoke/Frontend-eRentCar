@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Car} from "../../../search-car/model/car";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-fav-card-car',
@@ -11,11 +10,9 @@ export class FavCardCarComponent implements OnInit {
   @Input() car!: Car;
   moreInformationUrl!: string;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    //this.router.navigate([`/client${this.car.clientId}/search/car/${this.car.id}`])
-    this.moreInformationUrl = `/client/${this.car.clientId}/search/car/${this.car.id}`;
+    this.moreInformationUrl = `/client/search/car/${this.car.id}`;
   }
-//http://localhost:4200/client/1/search/car/1
 }

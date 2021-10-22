@@ -1,1 +1,31 @@
-<p>Client Works!</p>
+<mat-toolbar>
+  <img src="assets/logo.png" alt="company image">
+
+  <button
+    mat-flat-button
+    class="menu-button"
+    [mat-menu-trigger-for]="menu"
+  >
+    <mat-icon matPrefix>
+      person
+    </mat-icon>
+    {{ clientData.names }}
+  </button>
+
+  <mat-menu
+    #menu
+    xPosition="before"
+  >
+    <button
+      mat-menu-item
+      *ngFor="let option of menuOptions"
+      [routerLink]="option.url"
+    >
+      {{ option.name }}
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<ng-container>
+  <router-outlet></router-outlet>
+</ng-container>

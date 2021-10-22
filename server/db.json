@@ -24,7 +24,9 @@
       "responseTime": 7,
       "rate": 4.2,
       "imagePath": "",
-      "planId": "2"
+      "planId": "2",
+      "email": "martinque@gmail.com",
+      "password": "martinque"
     },
     {
       "id": "3",
@@ -37,7 +39,9 @@
       "responseTime": 4,
       "rate": 4.5,
       "imagePath": "",
-      "planId": "3"
+      "planId": "3",
+      "email": "mariatrevi@gmail.com",
+      "password": "mariatrevi"
     }
   ],
   "languages": [
@@ -59,11 +63,6 @@
     }
   ],
   "clientLanguages": [
-    {
-      "id": "1",
-      "clientId": "1",
-      "languageId": "1"
-    },
     {
       "id": "1",
       "clientId": "1",
@@ -296,13 +295,13 @@
     },
     {
       "carId": "4",
-      "clientId": "1",
+      "clientId": "2",
       "id": "00aa51fd-ea8d-4c10-ad8a-5afb27f06b83"
     },
     {
       "carId": "4",
-      "clientId": "2",
-      "id": "00aa51fd-ea8d-4c10-ad8a-5afb27f06b83"
+      "clientId": "1",
+      "id": "149b3fbd-c8c3-4091-9e06-3de46376e19d"
     }
   ]
 }

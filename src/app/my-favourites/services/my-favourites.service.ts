@@ -60,14 +60,6 @@ export class MyFavouritesService {
         catchError(this.handleError))
   }
 
-  // Get Favourite by ClientId
-  getByClient(clientId: any): Observable<MyFavourites> {
-    return this.http.get<MyFavourites>(`${this.basePath}?&clientId=${clientId}`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
-  }
-
   // Get All Favourite
   getAll(): Observable<MyFavourites> {
     return this.http.get<MyFavourites>(this.basePath, this.httpOptions)

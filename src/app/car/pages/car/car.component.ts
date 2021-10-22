@@ -17,7 +17,7 @@ import { v4 as uuid } from 'uuid';
 export class CarComponent implements OnInit {
   carId!: string;
   carData!: Car;
-  clientId!: string;
+  clientId!: string | null;
   days: number = 1;
 
   isFavourite = false;
@@ -35,7 +35,7 @@ export class CarComponent implements OnInit {
     private favouriteService: MyFavouritesService
   ) {
     this.carId = this.route.snapshot.params.carId;
-    this.clientId = this.route.snapshot.params.clientId;
+    this.clientId = localStorage.getItem('clientId');
     this.carData = {} as Car
   }
 
@@ -77,19 +77,29 @@ export class CarComponent implements OnInit {
     });
   }
 
-  async addFavourite() {
+  addFavourite() {
     this.favourite.carId = this.carId;
     this.favourite.clientId = this.clientId;
     this.favourite.id = uuid();
-    await this.favouriteService.create(this.favourite).subscribe((response: any) => {
+
+    this.favouriteService.create(this.favourite).subscribe((response: any) => {
       this.isFavourite = true;
       this.favourite = response;
     })
   }
 
-  async deleteFavourite(id: string) {
-    await this.favouriteService.delete(id).subscribe((response: any) => {
+  deleteFavourite(id: string) {
+    this.favouriteService.delete(id).subscribe((response: any) => {
       this.isFavourite = false;
     })
+  }
+
+  actionFavourite(id: string) {
+    if (this.isFavourite) {
+      this.deleteFavourite(id);
+    }
+    else {
+      this.addFavourite();
+    }
   }
 }

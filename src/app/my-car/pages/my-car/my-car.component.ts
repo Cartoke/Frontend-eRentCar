@@ -12,13 +12,11 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./my-car.component.css']
 })
 export class MyCarComponent implements OnInit {
-  clientId!: string;
+  clientId!: string | null;
   clientCars!: Car[];
 
-  constructor(private route: ActivatedRoute,
-              private clientService: ClientService,
-              private editCarDialog: MatDialog) {
-    this.clientId = route.snapshot.params.clientId;
+  constructor(private clientService: ClientService, private editCarDialog: MatDialog) {
+    this.clientId = localStorage.getItem('clientId');
   }
 
   ngOnInit(): void {
