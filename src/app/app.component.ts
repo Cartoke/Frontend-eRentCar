@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
     { name: "Search auto", url: `client/${(this.currentClientId)}/search` },
     { name: "Reservations", url: `client/${(this.currentClientId)}/reservations` },
     { name: "My cars", url: `client/${(this.currentClientId)}/my-car` },
+    { name: "My messages", url: `client/${(this.currentClientId)}/my-messages` },
     { name: "Rentals", url: `client/${(this.currentClientId)}/rentals` },
     { name: "My Favourites", url: `client/${(this.currentClientId)}/favourites` },
     { name: "Subscription", url: `client/${(this.currentClientId)}/subscription` },

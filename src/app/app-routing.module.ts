@@ -8,9 +8,11 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
+import {MyMessagesComponent} from "./my-messages/pages/my-messages/my-messages.component";
 
 const routes: Routes = [
   {path: 'client/:clientId/my-car',  component: MyCarComponent},
+  {path: 'client/:clientId/my-messages',  component: MyMessagesComponent},
   {path: 'client/:clientId/favourites', component: MyFavouritesComponent},
   {path: 'client/:clientId/rentals', component: MyRentalsComponent},
   {path: 'client/:clientId/reservations', component: MyReservationsComponent},
