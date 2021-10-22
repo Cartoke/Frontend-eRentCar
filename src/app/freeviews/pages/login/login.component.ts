@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string): void {
     this.clientService.getByEmailAndPassword(email, password).subscribe((response: any) => {
       if (response.length > 0) {
         localStorage.setItem("clientId", response[0].id);
-        this.router.navigateByUrl("/client/1");
+        this.router.navigateByUrl("/client/search");
       }
       else {
         this.wrongEmailOrPassword = true;
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submit() {
+  submit(): void {
     if (this.form.valid) {
       this.login(this.form.value.email, this.form.value.password);
     }

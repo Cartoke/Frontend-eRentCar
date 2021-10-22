@@ -12,5 +12,5 @@ export interface Car {
   imagePath: string;
   rate: number;
   rentAmountDay: number;
-  clientId: string;
+  clientId: string | null;
 }

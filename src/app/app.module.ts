@@ -40,7 +40,7 @@ import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscr
 import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
 import { HomeComponent } from './freeviews/pages/home/home.component';
 import { AboutComponent } from './freeviews/pages/about/about.component';
-import { LoginComponent } from './freeviews/pages/login/login.component';
+import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
 

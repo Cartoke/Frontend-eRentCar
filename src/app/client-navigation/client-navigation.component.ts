@@ -9,30 +9,31 @@ import {ClientService} from "../my-profile/services/client.service";
 })
 export class ClientNavigationComponent implements OnInit {
   title = 'Clients-navigation';
-  currentClientId: string = "1";
+  currentClientId!: string | null;
   clientData!: Client;
+
   menuOptions = [
-    { name: "Search auto", url: `client/${(this.currentClientId)}/search` },
-    { name: "Reservations", url: `client/${(this.currentClientId)}/reservations` },
-    { name: "My cars", url: `client/${(this.currentClientId)}/my-car` },
-    { name: "Rentals", url: `client/${(this.currentClientId)}/rentals` },
-    { name: "My Favourites", url: `client/${(this.currentClientId)}/favourites` },
-    { name: "Subscription", url: `client/${(this.currentClientId)}/subscription` },
+    { name: "Search auto", url: 'search' },
+    { name: "Reservations", url: 'reservations' },
+    { name: "My cars", url: 'my-car' },
+    { name: "Rentals", url: 'rentals' },
+    { name: "My Favourites", url: 'favourites' },
+    { name: "Subscription", url: 'subscription' },
     { name: "Sign Out", url: '' }
   ];
 
   constructor(private clientService: ClientService) {
     this.clientData = {} as Client;
+    this.currentClientId = localStorage.getItem("clientId");
   }
 
   ngOnInit(): void {
     this.getClient();
   }
 
-  async getClient() {
-    await this.clientService.getById(this.currentClientId).subscribe((response: any) => {
+  getClient() {
+    this.clientService.getById(this.currentClientId).subscribe((response: any) => {
       this.clientData = response;
-      localStorage.setItem('clientData', JSON.stringify(response));
     });
   }
 }
