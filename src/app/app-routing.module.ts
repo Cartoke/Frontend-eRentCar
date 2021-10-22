@@ -8,6 +8,7 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
+import {MyProfileComponent} from "./my-profile/pages/my-profile/my-profile.component";
 
 const auxUser: any = localStorage.getItem('clientData');
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'client/:clientId/search', component: SearchCarComponent},
   {path: 'client/:clientId/subscription', component: SubscriptionComponent, data: JSON.parse(auxUser)},
   {path: 'client/:clientId', component: ClientNavigationComponent},
-  {path: 'client/:clientId/search/car/:carId', component: CarComponent}
+  {path: 'client/:clientId/search/car/:carId', component: CarComponent},
+  {path: 'client/:clientId/profile', component: MyProfileComponent}
 ];
 
 @NgModule({

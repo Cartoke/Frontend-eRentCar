@@ -10,7 +10,7 @@
       "averageResponsibility": 90,
       "responseTime": 5,
       "rate": 4.6,
-      "imagePath": "",
+      "imagePath": "sofia.jpg",
       "planId": ""
     },
     {
@@ -46,15 +46,15 @@
       "name": "Spanish"
     },
     {
-      "id": "1",
+      "id": "2",
       "name": "English"
     },
     {
-      "id": "1",
+      "id": "3",
       "name": "Portuguese"
     },
     {
-      "id": "1",
+      "id": "4",
       "name": "French"
     }
   ],
@@ -62,24 +62,20 @@
     {
       "id": "1",
       "clientId": "1",
-      "languageId": "1"
+      "languageId": "English"
     },
     {
-      "id": "1",
+      "id": "2",
       "clientId": "1",
-      "languageId": "2"
+      "languageId": "French"
     }
   ],
   "clientSocialNetworks": [
     {
       "id": "1",
       "clientId": "1",
-      "address": "https://www.facebook.com/"
-    },
-    {
-      "id": "2",
-      "clientId": "1",
-      "address": "https://www.instagram.com/"
+      "address": "https://www.facebook.com/",
+      "socialname": "facebook"
     }
   ],
   "clientsComments": [
@@ -238,6 +234,22 @@
       "carId": "2",
       "clientId": "1",
       "paymentAmount": 180
+    },
+    {
+      "id": "d51f309f-5f01-4708-81c9-5b3c397ef9cf",
+      "startDate": "19/10/2021",
+      "finishDate": "19/10/2021",
+      "carId": "1",
+      "clientId": "1",
+      "paymentAmount": 45
+    },
+    {
+      "id": "78fd9c39-521f-48d2-921b-73aeab16373f",
+      "startDate": "19/10/2021",
+      "finishDate": "19/10/2021",
+      "carId": "2",
+      "clientId": "1",
+      "paymentAmount": 60
     }
   ],
   "plans": [

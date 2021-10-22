@@ -12,13 +12,14 @@ export class AppComponent implements OnInit{
   currentClientId: string = "1";
   clientData!: Client;
   menuOptions = [
-    { name: "Search auto", url: `client/${(this.currentClientId)}/search` },
-    { name: "Reservations", url: `client/${(this.currentClientId)}/reservations` },
-    { name: "My cars", url: `client/${(this.currentClientId)}/my-car` },
-    { name: "Rentals", url: `client/${(this.currentClientId)}/rentals` },
-    { name: "My Favourites", url: `client/${(this.currentClientId)}/favourites` },
-    { name: "Subscription", url: `client/${(this.currentClientId)}/subscription` },
-    { name: "Sign Out", url: '' }
+    { name: "Search auto",    url: `client/${(this.currentClientId)}/search` },
+    { name: "Reservations",   url: `client/${(this.currentClientId)}/reservations` },
+    { name: "My cars",        url: `client/${(this.currentClientId)}/my-car` },
+    { name: "Rentals",        url: `client/${(this.currentClientId)}/rentals` },
+    { name: "My Favourites",  url: `client/${(this.currentClientId)}/favourites` },
+    { name: "Subscription",   url: `client/${(this.currentClientId)}/subscription` },
+    { name: "My Profile",     url: `client/${(this.currentClientId)}/profile`},
+    { name: "Sign Out",       url: '' }
   ];
 
   constructor(private clientService: ClientService) {
