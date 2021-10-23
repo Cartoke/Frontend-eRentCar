@@ -236,6 +236,14 @@
       "carId": "2",
       "clientId": "1",
       "paymentAmount": 180
+    },
+    {
+      "id": "c7496d20-350d-45d6-bfee-26b3c283a36b",
+      "startDate": "26/10/2021",
+      "finishDate": "31/10/2021",
+      "carId": "1",
+      "clientId": "2",
+      "paymentAmount": 270
     }
   ],
   "plans": [

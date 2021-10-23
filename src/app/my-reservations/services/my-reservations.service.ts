@@ -8,7 +8,7 @@ import {MyReservations} from "../model/my-reservations";
   providedIn: 'root'
 })
 export class MyReservationsService {
-  basePath = "http://localhost:3000/api/v1/Reservations"
+  basePath = "http://localhost:3000/api/v1/Rents"
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,7 +35,7 @@ export class MyReservationsService {
     return throwError('Something happened with request, please try again later');
   }
 
-  // Create Student
+  // Create Rent
   create(item: any): Observable<MyReservations> {
     return this.http.post<MyReservations>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(
@@ -43,7 +43,7 @@ export class MyReservationsService {
         catchError(this.handleError))
   }
 
-  // Get Student by Id
+  // Get Rent by Id
   getById(id: any): Observable<MyReservations> {
     return this.http.get<MyReservations>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(
@@ -51,7 +51,15 @@ export class MyReservationsService {
         catchError(this.handleError))
   }
 
-  // Get All Students
+  // Get Rent by ClientId
+  getByClientId(id: any): Observable<MyReservations> {
+    return this.http.get<MyReservations>(`${this.basePath}?clientId=${id}&_expand=car`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
+
+  // Get Rent Rent
   getAll(): Observable<MyReservations> {
     return this.http.get<MyReservations>(this.basePath, this.httpOptions)
       .pipe(
@@ -59,7 +67,7 @@ export class MyReservationsService {
         catchError(this.handleError))
   }
 
-  // Update Student
+  // Update Rent
   update(id: any, item: any): Observable<MyReservations> {
     return this.http.post<MyReservations>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(
@@ -67,7 +75,7 @@ export class MyReservationsService {
         catchError(this.handleError))
   }
 
-  // Delete Student
+  // Delete Rent
   delete(id: any): Observable<MyReservations> {
     return this.http.delete<MyReservations>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(
