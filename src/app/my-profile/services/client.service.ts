@@ -4,6 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {Client} from "../model/client";
 import {catchError, retry} from "rxjs/operators";
 import {Car} from "../../search-car/model/car";
+import {Comment} from "../model/comment";
 
 @Injectable({
   providedIn: 'root'

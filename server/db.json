@@ -9,7 +9,7 @@
       "averageResponsibility": 90,
       "responseTime": 5,
       "rate": 4.6,
-      "imagePath": "",
+      "imagePath": "sofia.jpg",
       "planId": "",
       "email": "sofiabaz@gmail.com",
       "password": "sofiabaz"
@@ -49,15 +49,15 @@
       "name": "Spanish"
     },
     {
-      "id": "1",
+      "id": "2",
       "name": "English"
     },
     {
-      "id": "1",
+      "id": "3",
       "name": "Portuguese"
     },
     {
-      "id": "1",
+      "id": "4",
       "name": "French"
     }
   ],
@@ -65,19 +65,20 @@
     {
       "id": "1",
       "clientId": "1",
-      "languageId": "2"
+      "languageId": "English"
+    },
+    {
+      "id": "2",
+      "clientId": "1",
+      "languageId": "French"
     }
   ],
   "clientSocialNetworks": [
     {
       "id": "1",
       "clientId": "1",
-      "address": "https://www.facebook.com/"
-    },
-    {
-      "id": "2",
-      "clientId": "1",
-      "address": "https://www.instagram.com/"
+      "address": "https://www.facebook.com/",
+      "socialname": "facebook"
     }
   ],
   "clientsComments": [
@@ -129,7 +130,7 @@
       "imagePath": "chevrolet-cruze.jpg",
       "rate": 5,
       "rentAmountDay": 60,
-      "clientId": "2"
+      "clientId": "1"
     },
     {
       "id": "3",
@@ -273,6 +274,15 @@
       "paymentAmount": 180,
       "rate": 0,
       "endDate": "31/10/2021"
+    },
+    {
+      "id": "4b170e52-cc84-4346-9e70-9bdf4e2458fe",
+      "startDate": "27/10/2021",
+      "finishDate": "31/10/2021",
+      "carId": "1",
+      "clientId": "1",
+      "paymentAmount": 225,
+      "rate": 0
     }
   ],
   "plans": [

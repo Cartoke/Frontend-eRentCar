@@ -8,6 +8,7 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
+import {MyProfileComponent} from "./my-profile/pages/my-profile/my-profile.component";
 import {HomeComponent} from "./freeviews/pages/home/home.component";
 import {AboutComponent} from "./freeviews/pages/about/about.component";
 import {LoginComponent} from "./freeviews/pages/login/login.component";
@@ -35,6 +36,7 @@ const routes: Routes = [
       {path: 'rentals', component: MyRentalsComponent},
       {path: 'reservations', component: MyReservationsComponent},
       {path: 'subscription', component: SubscriptionComponent},
+      {path: 'profile', component: MyProfileComponent},
       {path: 'search/car/:carId', component: CarComponent}
     ]
   }

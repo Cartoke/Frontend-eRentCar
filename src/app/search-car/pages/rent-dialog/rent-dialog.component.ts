@@ -65,7 +65,8 @@ export class RentDialogComponent implements OnInit {
       finishDate: this.getDateFormat(this.date.value.end),
       carId: this.data.car.id,
       clientId: this.data.clientId,
-      paymentAmount: this.getPaymentAmount()
+      paymentAmount: this.getPaymentAmount(),
+      rate: 0
     }
 
     this.rentCarService.create(rent).subscribe((response: any) => {

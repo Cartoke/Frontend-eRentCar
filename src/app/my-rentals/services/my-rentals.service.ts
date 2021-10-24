@@ -8,7 +8,7 @@ import {MyRentals} from "../model/my-rentals";
   providedIn: 'root'
 })
 export class MyRentalsService {
-  basePath = "http://localhost:3000/api/v1/Rents"
+  basePath = "http://localhost:3000/api/v1/rents"
 
   httpOptions = {
     headers: new HttpHeaders({

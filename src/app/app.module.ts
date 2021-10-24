@@ -38,6 +38,13 @@ import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-d
 import {MatRadioModule} from "@angular/material/radio";
 import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
 import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
+
+import { ViewCarComponent } from './my-car/pages/view-car/view-car.component';
+import { MyCommentsComponent } from './my-profile/pages/my-comments/my-comments.component';
+import { MyLanguageComponent } from './my-profile/pages/my-language/my-language.component';
+import { MySocialComponent } from './my-profile/pages/my-social/my-social.component';
+
+
 import { FavCardCarComponent } from './my-favourites/pages/fav-card-car/fav-card-car.component';
 import { HomeComponent } from './freeviews/pages/home/home.component';
 import { AboutComponent } from './freeviews/pages/about/about.component';
@@ -68,6 +75,10 @@ import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialo
     EditCarDialogComponent,
     CardMySubscriptionComponent,
     ShowPlansComponent,
+    ViewCarComponent,
+    MyCommentsComponent,
+    MyLanguageComponent,
+    MySocialComponent,
     FavCardCarComponent,
     HomeComponent,
     AboutComponent,
