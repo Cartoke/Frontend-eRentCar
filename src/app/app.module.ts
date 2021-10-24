@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import { MyCarComponent } from './my-car/pages/my-car/my-car.component';
-import { MyMessagesComponent } from './my-messages/pages/my-messages/my-messages.component';
 import { CarComponent } from './car/pages/car/car.component';
 import { MyFavouritesComponent } from './my-favourites/pages/my-favourites/my-favourites.component';
 import { MyRentalsComponent } from './my-rentals/pages/my-rentals/my-rentals.component';
@@ -52,7 +51,6 @@ import {MatStepperModule} from "@angular/material/stepper";
     AppComponent,
     MyCarComponent,
     CarComponent,
-    MyMessagesComponent,
     MyFavouritesComponent,
     MyRentalsComponent,
     MyReservationsComponent,

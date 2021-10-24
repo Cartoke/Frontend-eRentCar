@@ -8,7 +8,6 @@ import {SearchCarComponent} from "./search-car/pages/search-car/search-car.compo
 import {SubscriptionComponent} from "./subscription/pages/subscription/subscription.component";
 import {ClientNavigationComponent} from "./client-navigation/client-navigation.component";
 import {CarComponent} from "./car/pages/car/car.component";
-import {MyMessagesComponent} from "./my-messages/pages/my-messages/my-messages.component";
 import {HomeComponent} from "./freeviews/pages/home/home.component";
 import {AboutComponent} from "./freeviews/pages/about/about.component";
 import {LoginComponent} from "./freeviews/pages/login/login.component";
