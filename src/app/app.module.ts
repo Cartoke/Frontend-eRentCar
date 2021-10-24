@@ -48,6 +48,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/delete-dialog.component';
+import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/del
     LoginComponent,
     RegisterComponent,
     FreeviewComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    EditDateDialogComponent
   ],
   imports: [
     BrowserModule,

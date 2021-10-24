@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
 import {MyReservations} from "../model/my-reservations";
+import {Client} from "../../my-profile/model/client";
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,15 @@ export class MyReservationsService {
       .pipe(
         retry(2),
         catchError(this.handleError))
+  }
+
+  // Partial Update
+  partialUpdate(id: any, item: any): Observable<Client> {
+    return this.http.patch<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
   }
 
   // Delete Rent
