@@ -13,7 +13,6 @@
       "planId": "",
       "email": "sofiabaz@gmail.com",
       "password": "sofiabaz"
-
     },
     {
       "id": "2",
@@ -72,7 +71,6 @@
       "id": "2",
       "clientId": "1",
       "languageId": "French"
-
     }
   ],
   "clientSocialNetworks": [
@@ -259,6 +257,15 @@
       "paymentAmount": 180,
       "rate": 0,
       "endDate": "31/10/2021"
+    },
+    {
+      "id": "4b170e52-cc84-4346-9e70-9bdf4e2458fe",
+      "startDate": "27/10/2021",
+      "finishDate": "31/10/2021",
+      "carId": "1",
+      "clientId": "1",
+      "paymentAmount": 225,
+      "rate": 0
     }
   ],
   "plans": [
