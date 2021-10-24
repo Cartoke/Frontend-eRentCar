@@ -9,15 +9,17 @@ import {ClientService} from "../../../my-profile/services/client.service";
 })
 export class ViewCarComponent implements OnInit {
   @Input() userCar !: Car;
-  @Input() userId !: string;
+  @Input() userId !: string | null;
 
-  constructor() {
-    this.userCar = {} as Car;
+  constructor(private clientService: ClientService) {
+
   }
 
   ngOnInit(): void {
 
   }
+
+
 
 
 }

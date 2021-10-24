@@ -17,14 +17,16 @@ import {SocialService} from "../../services/social.service";
 })
 export class MyProfileComponent implements OnInit {
   clientUsers !: Client;
-  currentUser: string = "1";
+  currentUser !: string | null;
   userCars !: Car[];
   userComments !: Comment[];
   clientLanguages !: Language[];
   clientSocial !: Social[];
 
-  constructor(private route: ActivatedRoute, private clientUsersService: ClientService, private commentsServices: CommentsService, private languagesServices: LanguageService, private socialService: SocialService) {
+
+  constructor(private clientUsersService: ClientService, private commentsServices: CommentsService, private languagesServices: LanguageService, private socialService: SocialService) {
     this.clientUsers = {} as Client;
+    this.currentUser = localStorage.getItem('clientId');
   }
 
   ngOnInit(): void {
@@ -57,7 +59,8 @@ export class MyProfileComponent implements OnInit {
   }
   getSocial() {
     this.socialService.getSocialNetworksByIdClient(this.currentUser).subscribe((response:any) => {
-      this.clientSocial = response
+      this.clientSocial = response;
     })
   }
+
 }

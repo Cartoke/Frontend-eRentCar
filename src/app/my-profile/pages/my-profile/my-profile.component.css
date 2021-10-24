@@ -1,59 +1,51 @@
 mat-card{
   margin: 50px auto;
   width: 75%;
-  background-color: #D0EFF2;
+}
+.profile-style {
+  display: flex;
+
+}
+mat-card-content{
+  padding-left: 15px;
+  padding-top: 10px;
+}
+mat-card-title{
+  margin: 0 auto 0;
+  padding: 20px;
+}
+.car-style{
+  width: 50%;
+  position: relative;
+}
+.information-style{
+
+  width: 50%;
+}
+mat-icon{
+  vertical-align: bottom;
+}
+.language-style{
+  display: grid;
 }
 h1{
-  position: center;
-  margin-left: 50%;
-  margin-top: 30px;
+  margin-left: 32.5%;
+
 }
 mat-label{
   font-weight: bolder;
 }
-.name-s{
-  margin-left: 17%;
-  margin-top: -10%;
-}
+
 h3{
   margin-bottom: 100px;
 }
 mat-card img{
-  grid-area: image;
+  position: relative;
   width: 150px;
   height: 100px;
-  margin-left: 15%;
-  border-style: outset;
-  border-radius: 50px;
+  margin-left: 30%;
 }
 mat-card li{
   list-style-type: none;
-}
-.happyface{
-  margin-top: 20px;
-  position: absolute;
-  color: #1976D2;
-}
-.starstyle{
-  position: absolute;
-  color: black;
-  font-size: 20px;
-  top: 10px;
-  left: 30%;
-  margin-bottom: 100px;
-}
-.star{
-  font-size: 100px;
-  color:gold;
-}
-.pos {
-  padding-top: 15px;
-  padding-bottom: 20px;
-}
-.userstyle{
-  margin-left: 15px;
-}
-.socialstyle{
-  margin-top: 500%;
 }
 

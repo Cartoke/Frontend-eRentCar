@@ -52,6 +52,7 @@ import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -86,32 +87,33 @@ import {MatStepperModule} from "@angular/material/stepper";
     FreeviewComponent
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatCardModule,
-    MatGridListModule,
-    MatInputModule,
-    FormsModule,
-    MatIconModule,
-    MatListModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatRadioModule,
-    MatStepperModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatDividerModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatCardModule,
+        MatGridListModule,
+        MatInputModule,
+        FormsModule,
+        MatIconModule,
+        MatListModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatRadioModule,
+        MatStepperModule,
+        MatTableModule
+    ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
