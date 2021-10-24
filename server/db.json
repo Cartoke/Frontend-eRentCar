@@ -252,7 +252,27 @@
       "finishDate": "15/9/2021",
       "carId": "2",
       "clientId": "1",
-      "paymentAmount": 180
+      "paymentAmount": 180,
+      "rate": 0
+    },
+    {
+      "id": "c7496d20-350d-45d6-bfee-26b3c283a36b",
+      "startDate": "22/10/2021",
+      "finishDate": "31/10/2021",
+      "carId": "1",
+      "clientId": "2",
+      "paymentAmount": 270,
+      "rate": 3
+    },
+    {
+      "id": "07e1bde6-56fe-4d46-a156-c470d6385aec",
+      "startDate": "28/10/2021",
+      "finishDate": "31/10/2021",
+      "carId": "1",
+      "clientId": "2",
+      "paymentAmount": 180,
+      "rate": 0,
+      "endDate": "31/10/2021"
     }
   ],
   "plans": [

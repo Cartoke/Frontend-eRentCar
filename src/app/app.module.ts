@@ -45,6 +45,10 @@ import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/delete-dialog.component';
+import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +73,9 @@ import {MatStepperModule} from "@angular/material/stepper";
     AboutComponent,
     LoginComponent,
     RegisterComponent,
-    FreeviewComponent
+    FreeviewComponent,
+    DeleteDialogComponent,
+    EditDateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +101,9 @@ import {MatStepperModule} from "@angular/material/stepper";
     ReactiveFormsModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
