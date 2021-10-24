@@ -66,8 +66,40 @@ export class ClientService {
       );
   }
 
+  getFavoritesByIdClient(id: any): Observable<Car> {
+    return this.http.get<Car>(`${this.basePath}/${id}/favourites`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  getByEmailAndPassword(email: any, password: any): Observable<Client> {
+    return this.http.get<Client>(`${this.basePath}?email=${email}&password=${password}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  getByEmail(email: any): Observable<Client> {
+    return this.http.get<Client>(`${this.basePath}?email=${email}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
   update(id: any, item: any): Observable<Client> {
     return this.http.post<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  partialUpdate(id: any, item: any): Observable<Client> {
+    return this.http.patch<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

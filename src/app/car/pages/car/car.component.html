@@ -1,6 +1,15 @@
 <div class="container">
-  <div>
+  <div class="actions">
     <button mat-raised-button (click)="goBack()">Back</button>
+    <button
+      id="favorite-button"
+      mat-fab
+      [color]="isFavourite ? 'warn' : 'gray'"
+      aria-label=favorite
+      (click)="actionFavourite(favourite.id)"
+    >
+      <mat-icon>favorite_border</mat-icon>
+    </button>
   </div>
   <mat-divider></mat-divider>
   <div class="container-data">
@@ -22,7 +31,7 @@
       </span>
       <span class="rent-price">$ {{ getPrice() }}</span>
       <div class="starts">
-        <h2>Valoración</h2>
+        <h2>Assessment</h2>
         <mat-icon
           *ngFor="let i of [1, 2, 3, 4, 5]"
           [ngClass]="{'color-star': i <= carData.rate}"

@@ -37,6 +37,15 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { CardMyCarComponent } from './my-car/pages/card-my-car/card-my-car.component';
 import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-dialog.component";
 import {MatRadioModule} from "@angular/material/radio";
+import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
+import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
+import { FavCardCarComponent } from './my-favourites/pages/fav-card-car/fav-card-car.component';
+import { HomeComponent } from './freeviews/pages/home/home.component';
+import { AboutComponent } from './freeviews/pages/about/about.component';
+import {LoginComponent} from "./freeviews/pages/login/login.component";
+import { RegisterComponent } from './freeviews/pages/register/register.component';
+import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -54,7 +63,15 @@ import {MatRadioModule} from "@angular/material/radio";
     MyProfileComponent,
     RentDialogComponent,
     CardMyCarComponent,
-    EditCarDialogComponent
+    EditCarDialogComponent,
+    CardMySubscriptionComponent,
+    ShowPlansComponent,
+    FavCardCarComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    RegisterComponent,
+    FreeviewComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +96,8 @@ import {MatRadioModule} from "@angular/material/radio";
     MatNativeDateModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@ import {RentDialogComponent} from "../rent-dialog/rent-dialog.component";
 })
 export class CardCarComponent implements OnInit {
   @Input() car!: Car;
-  @Input() clientId!: string;
+  @Input() clientId!: string | null;
   days: number = 1;
   moreInformationUrl!: string;
 
