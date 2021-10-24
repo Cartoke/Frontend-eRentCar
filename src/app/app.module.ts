@@ -53,7 +53,9 @@ import { RegisterComponent } from './freeviews/pages/register/register.component
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatTableModule} from "@angular/material/table";
-
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/delete-dialog.component';
+import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
 
 @NgModule({
   declarations: [
@@ -73,47 +75,47 @@ import {MatTableModule} from "@angular/material/table";
     EditCarDialogComponent,
     CardMySubscriptionComponent,
     ShowPlansComponent,
-
     ViewCarComponent,
     MyCommentsComponent,
     MyLanguageComponent,
     MySocialComponent,
-
     FavCardCarComponent,
     HomeComponent,
     AboutComponent,
     LoginComponent,
     RegisterComponent,
-    FreeviewComponent
-
+    FreeviewComponent,
+    DeleteDialogComponent,
+    EditDateDialogComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatDividerModule,
-        MatCheckboxModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MatInputModule,
-        FormsModule,
-        MatIconModule,
-        MatListModule,
-        MatMenuModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        MatRadioModule,
-        MatStepperModule,
-        MatTableModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    FormsModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatRadioModule,
+    MatStepperModule,
+    MatTableModule,
+    MatPaginatorModule,
+  ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
