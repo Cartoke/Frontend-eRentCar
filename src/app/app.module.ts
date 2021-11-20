@@ -56,6 +56,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/delete-dialog.component';
 import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
+import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialo
     RegisterComponent,
     FreeviewComponent,
     DeleteDialogComponent,
-    EditDateDialogComponent
+    EditDateDialogComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

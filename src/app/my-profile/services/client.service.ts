@@ -4,7 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {Client} from "../model/client";
 import {catchError, retry} from "rxjs/operators";
 import {Car} from "../../search-car/model/car";
-import {Comment} from "../model/comment";
+
 
 @Injectable({
   providedIn: 'root'
@@ -92,7 +92,7 @@ export class ClientService {
   }
 
   update(id: any, item: any): Observable<Client> {
-    return this.http.post<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

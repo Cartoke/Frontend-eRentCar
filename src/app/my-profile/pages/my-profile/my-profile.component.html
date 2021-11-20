@@ -1,20 +1,9 @@
 <mat-card-title>My Profile</mat-card-title>
-<mat-card class="profile-style">
-  <!--
-  <img src="assets/users-images/{{ clientUsers.imagePath }}" alt="user image">
-  <app-view-car *ngFor="let car of userCars" [userCar]="car" [userId]="currentUser"></app-view-car>
-  <h2 class="name-s">{{ clientUsers.names }}</h2>
-  <div class="starstyle"><mat-icon class="star">star</mat-icon ><mat-label> {{clientUsers.rate}}</mat-label></div>
-  <li></li>
-  <mat-label>Location</mat-label><br>
-  <span class="userstyle">{{ clientUsers.address }}</span><br>
-  <mat-icon class="happyface">sentiment_very_satisfied</mat-icon>
-  <div class="pos"><app-my-comments *ngFor="let comment of userComments" [userComment]="comment" [commentId]="currentUser" ></app-my-comments></div>
-  <mat-label>Languages</mat-label><br>
-  <app-my-language *ngFor="let language of clientLanguages" [userLanguage]="language" [languageId]="currentUser"></app-my-language><br>
-  <mat-label class="socialstyle">Social Networks</mat-label><br>
-  <app-my-social *ngFor="let social of clientSocial" [socialUser]="social" [socialId]="currentUser"></app-my-social>
-  -->
+
+<mat-card-content class="profile-style">
+  <div style="position: fixed">
+    <button color="primary" mat-raised-button (click)="editDialogClient()"><mat-icon>edit</mat-icon></button>
+  </div>
   <div class="information-style">
     <img mat-card-avatar src="assets/users-images/{{ clientUsers.imagePath }}" alt="user image">
     <h1>{{ clientUsers.names }}</h1>
@@ -37,4 +26,4 @@
     <app-view-car *ngFor="let car of userCars" [userCar]="car" [userId]="currentUser"></app-view-car>
   </div>
 
-</mat-card>
+</mat-card-content>
