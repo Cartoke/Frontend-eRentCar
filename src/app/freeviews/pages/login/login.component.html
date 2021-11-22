@@ -11,11 +11,10 @@
       <img id="user-img" class="mx-auto" src="assets/user.png">
     </div>
     <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput name="email" formControlName="email">
-      <div *ngIf="form.get('email')?.errors && form.get('email')?.dirty">
-        <mat-error *ngIf="form.get('email')?.hasError('required')">Required</mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('pattern')">Invalid email</mat-error>
+      <mat-label>User name</mat-label>
+      <input matInput name="userName" formControlName="userName">
+      <div *ngIf="form.get('userName')?.errors && form.get('userName')?.dirty">
+        <mat-error *ngIf="form.get('userName')?.hasError('required')">Required</mat-error>
       </div>
     </mat-form-field>
     <mat-form-field appearance="fill">
