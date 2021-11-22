@@ -4,7 +4,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ClientService} from "../../../my-profile/services/client.service";
 import {AuthService} from "../../../api/auth.service";
 import {TokenStorageService} from "../../../api/token-storage.service";
-import {LoginApiComponent} from "../../../api/login/login.component";
 
 @Component({
   selector: 'app-login',
@@ -39,6 +38,8 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorageService.getUser().roles;
     }
   }
+
+
   submit(): void {
     if (this.form.valid) {
       console.log(this.form.value.email)
