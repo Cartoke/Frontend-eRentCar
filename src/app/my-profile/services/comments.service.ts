@@ -9,7 +9,7 @@ import {Car} from "../../search-car/model/car";
   providedIn: 'root'
 })
 export class CommentsService {
-  basePath = "http://localhost:3000/api/v1/clientsComments";
+  basePath = "http://localhost:3000/api/v1/comments";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -48,8 +48,10 @@ export class CommentsService {
       );
   }
 
-  create(item: any): Observable<Comment> {
-    return this.http.post<Comment>(this.basePath, JSON.stringify(item), this.httpOptions)
+  create(clientId: any, clientCommentId: any, item: any): Observable<Comment> {
+    return this.http.post<Comment>(`
+          ${ this.basePath }/client/${ clientId }/client-comment/${ clientCommentId }`,
+          JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -64,12 +66,11 @@ export class CommentsService {
       );
   }
 
-  getCommentsByIdClient(id: any): Observable<Comment> {
-    return this.http.get<Comment>(`${this.basePath}/${id}/clientsComments`, this.httpOptions)
+  delete(id: any) {
+    return this.http.delete(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
-
 }

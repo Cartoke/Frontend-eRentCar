@@ -1,14 +1,13 @@
 export interface Client {
-  id: string;
+  id: number;
   names: string;
   lastNames: string;
   address: string;
-  cellphoneNumber: string;
+  cellphoneNumber: number;
   averageResponsibility: number;
   responseTime: number;
   rate: number;
   imagePath: string;
-  planId: string;
-  email: string;
-  password: string;
+  planId: number;
+  userId: number;
 }

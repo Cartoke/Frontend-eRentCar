@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {Client} from "../model/client";
 import {catchError, retry} from "rxjs/operators";
-import {Car} from "../../search-car/model/car";
-
+import {CarModel} from "../model/car-model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
-  basePath = "https://erentcar.herokuapp.com/api/v1/clients";
+export class CarModelsService {
+  basePath = "https://erentcar.herokuapp.com/api/v1/car-models";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,8 +16,7 @@ export class ClientService {
     })
   }
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   // API Error Handling
   handleError(error: HttpErrorResponse) {
@@ -35,40 +32,32 @@ export class ClientService {
     return throwError("Something happened with request, please try again later");
   }
 
-  getAll(): Observable<Client> {
-    return this.http.get<Client>(this.basePath, this.httpOptions)
+  getAll(): Observable<CarModel> {
+    return this.http.get<CarModel>(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  getById(id: any): Observable<Client> {
-    return this.http.get<Client>(`${this.basePath}/${id}`, this.httpOptions)
+  getById(id: any): Observable<CarModel> {
+    return this.http.get<CarModel>(`${ this.basePath}/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  create(item: any): Observable<Client> {
-    return this.http.post<Client>(this.basePath, JSON.stringify(item), this.httpOptions)
+  create(carBrandId: any, item: any): Observable<CarModel> {
+    return this.http.post<CarModel>(`${ this.basePath}/car-brands/${ carBrandId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  update(id: any, item: any): Observable<Client> {
-    return this.http.put<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
-  }
-
-  updatePlan(clientId: any, planId: any, item: any): Observable<Client> {
-    return this.http.put<Client>(`${ this.basePath }/${ clientId }/plan/${ planId }`, JSON.stringify(item), this.httpOptions)
+  update(id: any, item: any): Observable<CarModel> {
+    return this.http.put<CarModel>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

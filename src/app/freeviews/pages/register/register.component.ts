@@ -33,19 +33,19 @@ export class RegisterComponent implements OnInit {
   }
 
   validateEmail(stepper: MatStepper) {
-    this.clientService.getByEmail(this.emailAndPasswordForm.value.email).subscribe((response: any) => {
+    /*this.clientService.getByEmail(this.emailAndPasswordForm.value.email).subscribe((response: any) => {
       if (response.length == 0) {
         stepper.next();
       }
       else {
         alert('The email already exist');
       }
-    });
+    });*/
     stepper.next();
   }
 
   registerClient(stepper: MatStepper) {
-    const newClient: Client = {
+    /*const newClient: Client = {
       id: uuid(),
       names: this.personalInformationForm.value.names,
       lastNames: this.personalInformationForm.value.lastNames,
@@ -62,6 +62,6 @@ export class RegisterComponent implements OnInit {
 
     this.clientService.create(newClient).subscribe((response: any) => {
       stepper.next();
-    });
+    });*/
   }
 }

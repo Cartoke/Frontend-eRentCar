@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {SubscriptionService} from "../../services/subscription.service";
+import {PlansService} from "../../services/plans.service";
 import {Plan} from "../../model/plan";
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../my-profile/services/client.service";
 import {Client} from "../../../my-profile/model/client";
+import {Parser} from "@angular/compiler";
 
 @Component({
   selector: 'app-subscription',
@@ -15,7 +16,7 @@ export class SubscriptionComponent implements OnInit {
   clientData!: Client;
 
   constructor(
-    private subscriptionService: SubscriptionService,
+    private subscriptionService: PlansService,
     private clientService: ClientService,
   )  { }
 
@@ -25,17 +26,18 @@ export class SubscriptionComponent implements OnInit {
   }
 
   retrieveClient(): void {
-    let clientId: string | null = localStorage.getItem('clientId');
+
+    /*let clientId: number =  JSON.parse(localStorage.getItem('clientId') ? "" : localStorage.getItem('clientId')).id;
 
     this.clientService.getById(clientId).subscribe((response: any) => {
       this.clientData = response;
-    });
+    });*/
   }
 
   retrievePlans() {
-    this.subscriptionService.getPlans().subscribe((response: any) => {
+    /*this.subscriptionService.getPlans().subscribe((response: any) => {
       this.plans = response;
-    });
+    });*/
   }
 
   deletePlanStatusChange(ev: any) {

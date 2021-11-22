@@ -39,9 +39,9 @@ export class EditCarDialogComponent implements OnInit {
       });
     }
     else {
-      this.carService.create(this.data.car).subscribe((response: any) => {
+      /*this.carService.create(this.data.car).subscribe((response: any) => {
         console.log(response);
-      });
+      });*/
     }
   }
 }

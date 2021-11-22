@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string): void {
-    this.clientService.getByEmailAndPassword(email, password).subscribe((response: any) => {
+    /*this.clientService.getByEmailAndPassword(email, password).subscribe((response: any) => {
       if (response.length > 0) {
         localStorage.setItem("clientId", response[0].id);
         this.router.navigateByUrl("/client/search");
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       else {
         this.wrongEmailOrPassword = true;
       }
-    });
+    });*/
   }
 
   submit(): void {

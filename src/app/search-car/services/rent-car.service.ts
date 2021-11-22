@@ -8,7 +8,7 @@ import {Rent} from "../model/rent";
   providedIn: 'root'
 })
 export class RentCarService {
-  basePath = "http://localhost:3000/api/v1/rents";
+  basePath = "https://erentcar.herokuapp.com/api/v1/rents";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,6 +32,14 @@ export class RentCarService {
     return throwError("Something happened with request, please try again later");
   }
 
+  getAll(): Observable<Rent> {
+    return this.http.get<Rent>(this.basePath, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
   getById(id: any): Observable<Rent> {
     return this.http.get<Rent>(`${ this.basePath}/${ id }`, this.httpOptions)
       .pipe(
@@ -40,8 +48,24 @@ export class RentCarService {
       );
   }
 
-  create(item: any): Observable<Rent> {
-    return this.http.post<Rent>(this.basePath, JSON.stringify(item), this.httpOptions)
+  create(clientId: any, carId: any, item: any): Observable<Rent> {
+    return this.http.post<Rent>(`${ this.basePath }/client/${ clientId }/car/${ carId }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  update(id: any, item: any): Observable<Rent> {
+    return this.http.put<Rent>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  delete(id: any) {
+    return this.http.delete(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

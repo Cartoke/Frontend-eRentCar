@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClientService} from "../../../my-profile/services/client.service";
-import {SubscriptionService} from "../../services/subscription.service";
+import {PlansService} from "../../services/plans.service";
 
 @Component({
   selector: 'app-card-my-subscription',
@@ -15,7 +15,7 @@ export class CardMySubscriptionComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
-    private subscriptionService: SubscriptionService
+    private subscriptionService: PlansService
   ) { }
 
   ngOnInit(): void {
@@ -27,9 +27,9 @@ export class CardMySubscriptionComponent implements OnInit {
   }
 
   async deletePlan(){
-    await this.clientService.partialUpdate(this.myId, {"planId": ""}).subscribe((response: any) => {
+    /*await this.clientService.partialUpdate(this.myId, {"planId": ""}).subscribe((response: any) => {
       this.updatePlanValueFromMySubscription("");
-    })
+    })*/
   }
 
   async retrieveMyPlan(id: any) {
