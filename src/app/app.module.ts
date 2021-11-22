@@ -59,7 +59,6 @@ import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialo
 import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profile.component';
 import {authInterceptorProviders} from "./api/auth-interceptor.service";
 import { LogoutComponent } from './api/logout/logout.component';
-import { LoginApiComponent } from './api/login/login.component';
 import { RegisterApiComponent } from './api/register/register-api.component';
 
 @NgModule({
@@ -94,7 +93,6 @@ import { RegisterApiComponent } from './api/register/register-api.component';
     EditDateDialogComponent,
     EditProfileComponent,
     LogoutComponent,
-    LoginApiComponent,
     RegisterApiComponent
   ],
   imports: [

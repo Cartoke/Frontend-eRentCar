@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
               private tokenStorageService: TokenStorageService,
   ) {
     this.form = formBuilder.group({
-      email: ['', [Validators.required, Validators.pattern("^(([^<>()[\\]\\\\.,;:\\s@\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")]],
+      userName: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
@@ -39,13 +39,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   submit(): void {
     if (this.form.valid) {
-      console.log(this.form.value.email)
-      console.log(this.form.value.password);
-
-      this.authService.login({email: this.form.value.email, password: this.form.value.password}).subscribe(
+      //console.log({username: this.form.value.userName, password: this.form.value.password});
+      this.authService.login({username: this.form.value.userName, password: this.form.value.password}).subscribe(
         data => {
           this.tokenStorageService.saveToken(data.resource.token);
           this.tokenStorageService.saveUser(data.resource);

@@ -15,8 +15,8 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) { }
   login(credentials: any): Observable<any> {
-    return this.http.post(AUTH_API + 'sign-in', {
-      email: credentials.email,
+    return this.http.post("https://erentcar.herokuapp.com/api/v1/users/auth/" + 'sign-in', {
+      username: credentials.username,
       password: credentials.password
     }, httpOptions);
   }

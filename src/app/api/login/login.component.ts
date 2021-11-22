@@ -7,7 +7,7 @@ import {TokenStorageService} from "../token-storage.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginApiComponent implements OnInit {
+export class LoginComponent implements OnInit {
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;

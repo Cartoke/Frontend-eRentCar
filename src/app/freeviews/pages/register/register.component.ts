@@ -13,7 +13,7 @@ import {AuthService} from "../../../api/auth.service";
 })
 export class RegisterComponent implements OnInit {
   showPassword: Boolean = false;
-  emailAndPasswordForm: FormGroup;
+  userNameAndPasswordForm: FormGroup;
   personalInformationForm: FormGroup;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
       private clientService: ClientService,
       private authService: AuthService
   ) {
-      this.emailAndPasswordForm = this.formBuilder.group({
+      this.userNameAndPasswordForm = this.formBuilder.group({
+        userName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.pattern("^(([^<>()[\\]\\\\.,;:\\s@\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")]],
         password: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"), Validators.minLength(8)]]
       });
@@ -38,53 +39,44 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
     }
-/*
-    validateEmail(stepper: MatStepper) {
-      this.clientService.getByEmail(this.emailAndPasswordForm.value.email).subscribe((response: any) => {
-        if (response.length == 0) {
-          stepper.next();
-        }
-        else {
-          alert('The email already exist');
-        }
-      });
-      stepper.next();
-    }
 
-    registerClient(stepper: MatStepper) {
-      const newClient: Client = {
-        names: this.personalInformationForm.value.names,
-        lastNames: this.personalInformationForm.value.lastNames,
-        address: this.personalInformationForm.value.address,
-        cellphoneNumber: this.personalInformationForm.value.cellphoneNumber,
-        averageResponsibility: -1,
-        responseTime: -1,
-        rate: -1,
-        imagePath: "",
-        email: this.emailAndPasswordForm.value.email,
-        password: this.emailAndPasswordForm.value.password
+  validateUser(stepper: MatStepper) {
+    this.authService.register(
+      {
+        username: this.userNameAndPasswordForm.value.userName,
+        email: this.userNameAndPasswordForm.value.email,
+        password: this.userNameAndPasswordForm.value.password,
+        roles: [
+          "ROLE_USER"
+        ]
       }
-
-      this.authService.register({
-        username: newClient.email,
-        email: newClient.email,
-        password: newClient.password,
-        roles: ["ROLE_USER"],
-      }).subscribe(
-        data => {
-          console.log(data);
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-          stepper.next();
-        },
-        error => {
-          this.errorMessage = error.error.message;
-        }
-      );
-
-      this.clientService.create(newClient).subscribe((response: any) => {
+    ).subscribe((response: any) => {
+      if (response.id !== null) {
+        localStorage.setItem("userId", JSON.stringify(response.id));
         stepper.next();
-      });
-    }
- */
+      }
+      else {
+        alert('The username already exist');
+      }
+    });
   }
+
+  registerClient(stepper: MatStepper) {
+    const newClient: any = {
+      names: this.personalInformationForm.value.names,
+      lastNames: this.personalInformationForm.value.lastNames,
+      address: this.personalInformationForm.value.address,
+      cellphoneNumber: this.personalInformationForm.value.cellphoneNumber,
+      averageResponsibility: -1,
+      responseTime: -1,
+      rate: -1,
+      imagePath: "",
+      userId: JSON.parse(<string>localStorage.getItem("userId"))
+    }
+
+    this.clientService.create(newClient).subscribe((response: any) => {
+      localStorage.setItem("clientId", response.id);
+      stepper.next();
+    });
+  }
+}

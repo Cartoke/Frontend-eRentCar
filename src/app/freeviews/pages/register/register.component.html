@@ -1,14 +1,21 @@
 <mat-stepper linear class="stepper mx-auto" #stepper>
   <!-- email and password registration start -->
-  <mat-step [stepControl]="emailAndPasswordForm">
-    <form class="d-flex flex-column mx-auto" [formGroup]="emailAndPasswordForm">
-      <ng-template matStepLabel>Email and password</ng-template>
+  <mat-step [stepControl]="userNameAndPasswordForm">
+    <form class="d-flex flex-column mx-auto" [formGroup]="userNameAndPasswordForm">
+      <ng-template matStepLabel>Username and password</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="userName">
+        <div *ngIf="userNameAndPasswordForm.get('userName')?.errors && userNameAndPasswordForm.get('userName')?.dirty">
+          <mat-error *ngIf="userNameAndPasswordForm.get('userName')?.hasError('required')">Required</mat-error>
+        </div>
+      </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
-        <div *ngIf="emailAndPasswordForm.get('email')?.errors && emailAndPasswordForm.get('email')?.dirty">
-          <mat-error *ngIf="emailAndPasswordForm.get('email')?.hasError('required')">Required</mat-error>
-          <mat-error *ngIf="emailAndPasswordForm.get('email')?.hasError('pattern')">Invalid email</mat-error>
+        <div *ngIf="userNameAndPasswordForm.get('email')?.errors && userNameAndPasswordForm.get('email')?.dirty">
+          <mat-error *ngIf="userNameAndPasswordForm.get('email')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="userNameAndPasswordForm.get('email')?.hasError('pattern')">Invalid email</mat-error>
         </div>
       </mat-form-field>
       <mat-form-field appearance="fill">
@@ -21,9 +28,9 @@
         <button mat-button matSuffix type="button" (click)="showPassword = !showPassword">
           <mat-icon>{{ showPassword ? "visibility" : "visibility_off" }}</mat-icon>
         </button>
-        <div *ngIf="emailAndPasswordForm.get('password')?.errors && emailAndPasswordForm.get('password')?.dirty">
-          <mat-error *ngIf="emailAndPasswordForm.get('password')?.hasError('required')">Required</mat-error>
-          <mat-error *ngIf="emailAndPasswordForm.get('password')?.hasError('pattern')">The password must have at least one capital letter and one number</mat-error>
+        <div *ngIf="userNameAndPasswordForm.get('password')?.errors && userNameAndPasswordForm.get('password')?.dirty">
+          <mat-error *ngIf="userNameAndPasswordForm.get('password')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="userNameAndPasswordForm.get('password')?.hasError('pattern')">The password must have at least one capital letter and one number</mat-error>
         </div>
       </mat-form-field>
       <div class="d-flex">
@@ -32,7 +39,7 @@
         <button
           mat-raised-button
           color="primary"
-          (click)="validateEmail(stepper)"
+          (click)="validateUser(stepper)"
         >
           Continue
         </button>
