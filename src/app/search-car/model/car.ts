@@ -15,5 +15,5 @@ export interface Car {
   category: string;
   mechanicConditions: string;
   clientId: number | null;
-  carModelId: number | null;
+  carModelId: number;
 }

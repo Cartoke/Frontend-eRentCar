@@ -13,7 +13,7 @@
   </div>
   <mat-divider></mat-divider>
   <div class="container-data">
-    <img *ngIf="carData.imagePath != null" src="assets/cars-images/{{ carData.imagePath }}" alt="car image">
+    <img *ngIf="carData.imagePath != null" src="{{ carData.imagePath }}" alt="car image">
     <div class="car-information">
       <mat-card-title>{{ carData.brand }} {{ carData.model }}</mat-card-title>
       <span>Seating: {{ carData.seating }}</span>
