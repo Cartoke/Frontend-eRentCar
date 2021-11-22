@@ -57,6 +57,10 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/delete-dialog.component';
 import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
 import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profile.component';
+import {authInterceptorProviders} from "./api/auth-interceptor.service";
+import { LogoutComponent } from './api/logout/logout.component';
+import { LoginApiComponent } from './api/login/login.component';
+import { RegisterApiComponent } from './api/register/register-api.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +92,10 @@ import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profi
     FreeviewComponent,
     DeleteDialogComponent,
     EditDateDialogComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    LogoutComponent,
+    LoginApiComponent,
+    RegisterApiComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +125,10 @@ import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profi
     MatTableModule,
     MatPaginatorModule,
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
+  providers: [{
+    provide: MAT_DATE_LOCALE,
+    useValue: 'en-GB',
+  }, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

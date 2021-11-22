@@ -41,6 +41,20 @@
       "planId": "3",
       "email": "mariatrevi@gmail.com",
       "password": "mariatrevi"
+    },
+    {
+      "id": "9db6887b-29e5-479c-8540-fbf0427c98ed",
+      "names": "eliana",
+      "lastNames": "martinez",
+      "address": "Av. Sanchez",
+      "cellphoneNumber": "988122111",
+      "averageResponsibility": -1,
+      "responseTime": -1,
+      "rate": -1,
+      "imagePath": "",
+      "planId": "",
+      "email": "eliana@gmail.com",
+      "password": "Password1"
     }
   ],
   "languages": [

@@ -4,6 +4,7 @@ import {ClientService} from "../../../my-profile/services/client.service";
 import {MatStepper} from "@angular/material/stepper";
 import { v4 as uuid } from 'uuid';
 import {Client} from "../../../my-profile/model/client";
+import {AuthService} from "../../../api/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,14 @@ export class RegisterComponent implements OnInit {
   showPassword: Boolean = false;
   emailAndPasswordForm: FormGroup;
   personalInformationForm: FormGroup;
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder, private clientService: ClientService) {
+  constructor(private formBuilder: FormBuilder,
+              private clientService: ClientService,
+              private authService: AuthService
+  ) {
     this.emailAndPasswordForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern("^(([^<>()[\\]\\\\.,;:\\s@\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")]],
       password: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"), Validators.minLength(8)]]
@@ -60,8 +67,26 @@ export class RegisterComponent implements OnInit {
       password: this.emailAndPasswordForm.value.password
     }
 
+    this.authService.register({
+      username: newClient.email,
+      email: newClient.email,
+      password: newClient.password,
+      roles: ["ROLE_USER"],
+    }).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        stepper.next();
+      },
+      error => {
+        this.errorMessage = error.error.message;
+      }
+    );
+
+    /*
     this.clientService.create(newClient).subscribe((response: any) => {
       stepper.next();
-    });
+    });*/
   }
 }
