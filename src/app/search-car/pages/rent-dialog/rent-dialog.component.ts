@@ -69,9 +69,9 @@ export class RentDialogComponent implements OnInit {
       rate: 0
     }
 
-    this.rentCarService.create(rent).subscribe((response: any) => {
+    /*this.rentCarService.create(rent).subscribe((response: any) => {
       console.log(response);
-    });
+    });*/
 
     this.openSnackBar();
   }

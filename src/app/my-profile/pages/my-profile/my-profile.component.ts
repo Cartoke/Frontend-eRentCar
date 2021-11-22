@@ -2,13 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Client} from "../../model/client";
 import {ClientService} from "../../services/client.service";
 import {Car} from "../../../search-car/model/car";
-import {ActivatedRoute} from "@angular/router";
 import {Comment} from "../../model/comment";
 import {CommentsService} from "../../services/comments.service";
 import {Language} from "../../model/language";
 import {LanguageService} from "../../services/language.service";
 import {Social} from "../../model/social";
 import {SocialService} from "../../services/social.service";
+import {MatDialog} from "@angular/material/dialog";
+import {EditProfileComponent} from "../edit-profile/edit-profile.component";
 
 @Component({
   selector: 'app-my-profile',
@@ -24,7 +25,7 @@ export class MyProfileComponent implements OnInit {
   clientSocial !: Social[];
 
 
-  constructor(private clientUsersService: ClientService, private commentsServices: CommentsService, private languagesServices: LanguageService, private socialService: SocialService) {
+  constructor(private clientUsersService: ClientService, private commentsServices: CommentsService, private languagesServices: LanguageService, private socialService: SocialService, public editProfile: MatDialog) {
     this.clientUsers = {} as Client;
     this.currentUser = localStorage.getItem('clientId');
   }
@@ -43,14 +44,14 @@ export class MyProfileComponent implements OnInit {
     })
   }
   getCars() {
-    this.clientUsersService.getCarsByIdClient(this.currentUser).subscribe((response: any) => {
+    /*this.clientUsersService.getCarsByIdClient(this.currentUser).subscribe((response: any) => {
       this.userCars = response;
-    })
+    })*/
   }
   getComments() {
-    this.commentsServices.getCommentsByIdClient(this.currentUser).subscribe((response:any) => {
+    /*this.commentsServices.getCommentsByIdClient(this.currentUser).subscribe((response:any) => {
       this.userComments = response;
-    })
+    })*/
   }
   getLanguages() {
     this.languagesServices.getLanguagesByIdClient(this.currentUser).subscribe((response:any) => {
@@ -62,5 +63,14 @@ export class MyProfileComponent implements OnInit {
       this.clientSocial = response;
     })
   }
+  editDialogClient(): void {
+     this.editProfile.open(EditProfileComponent, {
+       width: "500px",
+       data: {
+         client: this.clientUsers,
+         clientId: this.currentUser,
+       }
+     })
 
+  }
 }

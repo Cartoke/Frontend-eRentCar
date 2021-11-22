@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MyReservationsService} from "../../services/my-reservations.service";
+//import {RentsService} from "../../services/rents.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {FormControl, FormGroup} from "@angular/forms";
 
@@ -24,7 +24,7 @@ export class EditDateDialogComponent implements OnInit {
   tempArrayFinish: any
 
   constructor(
-    private myReservationService: MyReservationsService,
+    //private myReservationService: RentsService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
     this.tempArrayStart = this.data.start.split('/');
@@ -70,7 +70,7 @@ export class EditDateDialogComponent implements OnInit {
   }
 
   async updateDates() {
-    await this.myReservationService.partialUpdate(
+    /*await this.myReservationService.partialUpdate(
       this.data.id, {
         "startDate": this.getDateFormat(this.date.value.start),
         "endDate": this.getDateFormat(this.date.value.end),
@@ -79,7 +79,7 @@ export class EditDateDialogComponent implements OnInit {
       .subscribe((response: any) => {
         console.log(response)
         this.data.changed = true
-      });
+      });*/
   }
 
 }

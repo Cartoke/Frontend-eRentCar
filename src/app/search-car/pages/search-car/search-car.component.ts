@@ -4,6 +4,9 @@ import {Car} from "../../model/car";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatDrawer} from "@angular/material/sidenav";
 import {FormGroup, FormControl} from "@angular/forms";
+import {CarModelsService} from "../../services/car-models.service";
+import {CarBrandsService} from "../../services/car-brands.service";
+
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -23,7 +26,10 @@ export class SearchCarComponent implements OnInit {
 
   @ViewChild(MatDrawer) drawer!: MatDrawer;
 
-  constructor(private carsService: CarsService, private observer: BreakpointObserver) {
+  constructor(private carsService: CarsService,
+              private carModelsService: CarModelsService,
+              private carBrandsService: CarBrandsService,
+              private observer: BreakpointObserver) {
     this.carsData = [];
     this.clientId = localStorage.getItem('clientId');
 
@@ -59,7 +65,24 @@ export class SearchCarComponent implements OnInit {
 
   getAllCars() {
     this.carsService.getAll().subscribe((response: any) => {
-      this.carsData = response;
+      this.carsData = response.content;
+
+      for (let i = 0; i < this.carsData.length; i++) {
+        this.getModelName(i, this.carsData[i].carModelId);
+      }
+    });
+  }
+
+  getModelName(index: number, carModelId: number): any {
+    this.carModelsService.getById(carModelId).subscribe((response: any) => {
+      this.carsData[index].model = response.name;
+      this.getBrandName(index, response.carBrandId);
+    });
+  }
+
+  getBrandName(index: number, carBrandId: number): any {
+    this.carBrandsService.getById(carBrandId).subscribe((response: any) => {
+      this.carsData[index].brand = response.name;
     });
   }
 }

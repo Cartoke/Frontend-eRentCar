@@ -24,13 +24,13 @@ export class MyCarComponent implements OnInit {
   }
 
   getCars(): void {
-    this.clientService.getCarsByIdClient(this.clientId).subscribe((response: any) => {
+    /*this.clientService.getCarsByIdClient(this.clientId).subscribe((response: any) => {
       this.clientCars = response;
-    });
+    });*/
   }
 
   openEditDialogCar(): void {
-    const car: Car = {
+    /*const car: Car = {
       id: uuid(),
       address: "",
       brand: "",
@@ -45,12 +45,12 @@ export class MyCarComponent implements OnInit {
       rate: 0,
       rentAmountDay: 0,
       clientId: this.clientId
-    }
+    }*/
 
     const dialogRef = this.editCarDialog.open(EditCarDialogComponent, {
       width: "400px",
       data: {
-        car: car,
+        //car: car,
         clientId: this.clientId,
         edit: false
       }

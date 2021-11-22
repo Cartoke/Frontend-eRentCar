@@ -1,5 +1,5 @@
 export interface Plan {
-  id: string;
+  id: number;
   name: string;
   price: number;
   benefits: string[];

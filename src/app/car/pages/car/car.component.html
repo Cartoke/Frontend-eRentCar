@@ -1,7 +1,7 @@
 <div class="container">
   <div class="actions">
     <button mat-raised-button (click)="goBack()">Back</button>
-    <button
+    <!--<button
       id="favorite-button"
       mat-fab
       [color]="isFavourite ? 'warn' : 'gray'"
@@ -9,11 +9,11 @@
       (click)="actionFavourite(favourite.id)"
     >
       <mat-icon>favorite_border</mat-icon>
-    </button>
+    </button>-->
   </div>
   <mat-divider></mat-divider>
   <div class="container-data">
-    <img *ngIf="carData.imagePath != null" src="assets/cars-images/{{ carData.imagePath }}" alt="car image">
+    <img *ngIf="carData.imagePath != null" src="{{ carData.imagePath }}" alt="car image">
     <div class="car-information">
       <mat-card-title>{{ carData.brand }} {{ carData.model }}</mat-card-title>
       <span>Seating: {{ carData.seating }}</span>

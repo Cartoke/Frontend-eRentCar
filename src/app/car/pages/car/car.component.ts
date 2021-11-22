@@ -6,8 +6,9 @@ import {Location} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {RentDialogComponent} from "../../../search-car/pages/rent-dialog/rent-dialog.component";
 import {MyFavouritesService} from "../../../my-favourites/services/my-favourites.service";
+import {CarModelsService} from "../../../search-car/services/car-models.service";
+import {CarBrandsService} from "../../../search-car/services/car-brands.service";
 import {MyFavourites} from "../../../my-favourites/model/my-favourites";
-import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-car',
@@ -20,19 +21,20 @@ export class CarComponent implements OnInit {
   clientId!: string | null;
   days: number = 1;
 
-  isFavourite = false;
+  /*isFavourite = false;
   favourite: MyFavourites = {
-    carId: "",
-    clientId: "",
-    id: ""
-  };
+    clientId: 0,
+    carId: 0
+  };*/
 
   constructor(
     private route: ActivatedRoute,
     private carService: CarsService,
     private location: Location,
     public rentDialog: MatDialog,
-    private favouriteService: MyFavouritesService
+    private favouriteService: MyFavouritesService,
+    private carModelsService: CarModelsService,
+    private carBrandsService: CarBrandsService,
   ) {
     this.carId = this.route.snapshot.params.carId;
     this.clientId = localStorage.getItem('clientId');
@@ -47,16 +49,30 @@ export class CarComponent implements OnInit {
   getCar(): void {
     this.carService.getById(this.carId).subscribe((response: any) => {
       this.carData = response;
+      this.getModelName(response.carModelId);
+    });
+  }
+
+  getModelName(carModelId: number): any {
+    this.carModelsService.getById(carModelId).subscribe((response: any) => {
+      this.carData.model = response.name;
+      this.getBrandName(response.carBrandId);
+    });
+  }
+
+  getBrandName(carBrandId: number): any {
+    this.carBrandsService.getById(carBrandId).subscribe((response: any) => {
+      this.carData.brand = response.name;
     });
   }
 
   getFavourites() {
-    this.favouriteService.getByCar(this.carId, this.clientId).subscribe((response: any) => {
+    /*this.favouriteService.getByCar(this.carId, this.clientId).subscribe((response: any) => {
       if(response.length > 0){
         this.isFavourite = true;
         this.favourite = response[0];
       }
-    });
+    });*/
   }
 
   getPrice(): number {
@@ -77,7 +93,7 @@ export class CarComponent implements OnInit {
     });
   }
 
-  addFavourite() {
+  /*addFavourite() {
     this.favourite.carId = this.carId;
     this.favourite.clientId = this.clientId;
     this.favourite.id = uuid();
@@ -102,4 +118,5 @@ export class CarComponent implements OnInit {
       this.addFavourite();
     }
   }
+  */
 }

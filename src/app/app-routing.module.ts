@@ -37,7 +37,8 @@ const routes: Routes = [
       {path: 'reservations', component: MyReservationsComponent},
       {path: 'subscription', component: SubscriptionComponent},
       {path: 'profile', component: MyProfileComponent},
-      {path: 'search/car/:carId', component: CarComponent}
+      {path: 'search/car/:carId', component: CarComponent},
+      {path: 'profile/car/:carId', component: CarComponent}
     ]
   }
 ];

@@ -1,7 +1,7 @@
 export interface Comment {
-  id: string,
-  clientId: string,
-  clientCommentId: string,
+  id: number,
+  clientId: number,
+  clientCommentId: number,
   date: string,
   starts: number,
   comment: string;

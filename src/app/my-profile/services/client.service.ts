@@ -4,13 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Client} from "../model/client";
 import {catchError, retry} from "rxjs/operators";
 import {Car} from "../../search-car/model/car";
-import {Comment} from "../model/comment";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  basePath = "http://localhost:3000/api/v1/clients";
+  basePath = "https://erentcar.herokuapp.com/api/v1/clients";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,8 +35,8 @@ export class ClientService {
     return throwError("Something happened with request, please try again later");
   }
 
-  create(item: any): Observable<Client> {
-    return this.http.post<Client>(this.basePath, JSON.stringify(item), this.httpOptions)
+  getAll(): Observable<Client> {
+    return this.http.get<Client>(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -51,40 +51,8 @@ export class ClientService {
       );
   }
 
-  getAll(): Observable<Client> {
-    return this.http.get<Client>(this.basePath, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
-  }
-
-  getCarsByIdClient(id: any): Observable<Car> {
-    return this.http.get<Car>(`${this.basePath}/${id}/cars`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
-  }
-
-  getFavoritesByIdClient(id: any): Observable<Car> {
-    return this.http.get<Car>(`${this.basePath}/${id}/favourites`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
-  }
-
-  getByEmailAndPassword(email: any, password: any): Observable<Client> {
-    return this.http.get<Client>(`${this.basePath}?email=${email}&password=${password}`)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
-  }
-
-  getByEmail(email: any): Observable<Client> {
-    return this.http.get<Client>(`${this.basePath}?email=${email}`)
+  create(item: any): Observable<Client> {
+    return this.http.post<Client>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -92,15 +60,15 @@ export class ClientService {
   }
 
   update(id: any, item: any): Observable<Client> {
-    return this.http.post<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  partialUpdate(id: any, item: any): Observable<Client> {
-    return this.http.patch<Client>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+  updatePlan(clientId: any, planId: any, item: any): Observable<Client> {
+    return this.http.put<Client>(`${ this.basePath }/${ clientId }/plan/${ planId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

@@ -8,7 +8,7 @@ import {catchError, retry} from "rxjs/operators";
   providedIn: 'root'
 })
 export class CarsService {
-  basePath = "http://localhost:3000/api/v1/cars";
+  basePath = "https://erentcar.herokuapp.com/api/v1/cars";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -48,8 +48,16 @@ export class CarsService {
       );
   }
 
-  create(item: any): Observable<Car> {
-    return this.http.post<Car>(this.basePath, JSON.stringify(item), this.httpOptions)
+  getCarsByClientId(clientId: any): Observable<Car> {
+    return this.http.get<Car>(`${ this.basePath }/client/${ clientId }`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  create(clientId: any, carModelId: any, item: any): Observable<Car> {
+    return this.http.post<Car>(`${ this.basePath }/client/${ clientId }/car-model/${ carModelId }`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -58,6 +66,22 @@ export class CarsService {
 
   update(id: any, item: any): Observable<Car> {
     return this.http.put<Car>(`${ this.basePath }/${ id }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  updateCarRate(cardId: any, rate: any): Observable<Car> {
+    return this.http.put<Car>(`${ this.basePath }/${ cardId }/rate/${ rate }`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
+
+  delete(id: any) {
+    return this.http.delete(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

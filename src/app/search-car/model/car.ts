@@ -1,5 +1,5 @@
 export interface Car {
-  id: string;
+  id: number;
   address: string;
   brand: string;
   year: number;
@@ -9,8 +9,11 @@ export interface Car {
   manual: boolean;
   carValueInDollars: number;
   extraInformation: string;
-  imagePath: string;
   rate: number;
   rentAmountDay: number;
-  clientId: string | null;
+  imagePath: string;
+  category: string;
+  mechanicConditions: string;
+  clientId: number | null;
+  carModelId: number;
 }

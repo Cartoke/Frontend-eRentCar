@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MyReservations} from "../../../my-reservations/model/my-reservations";
-import {MyReservationsService} from "../../services/my-reservations.service";
+import { RentCarService } from "../../../search-car/services/rent-car.service";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
 import {EditDateDialogComponent} from "../edit-date-dialog/edit-date-dialog.component";
@@ -12,7 +11,7 @@ import {EditDateDialogComponent} from "../edit-date-dialog/edit-date-dialog.comp
 })
 export class MyReservationsComponent implements OnInit {
 
-  rentsData: MyReservations[];
+  //rentsData: MyReservations[];
   displayedColumns: string[];
   clientId!: string | null;
   today: Date;
@@ -29,10 +28,10 @@ export class MyReservationsComponent implements OnInit {
   ]
 
   constructor(
-    private myReservationService: MyReservationsService,
+    //private myReservationService: RentsService,
     private dialog: MatDialog
   ) {
-    this.rentsData = [];
+    //this.rentsData = [];
     this.clientId = localStorage.getItem('clientId');
     this.displayedColumns = ['car', 'name', 'rate', 'startDate','finishDate','paymentAmount','actions']
     this.today = new Date();
@@ -46,9 +45,9 @@ export class MyReservationsComponent implements OnInit {
   }
 
   retrieveRentals(){
-    this.myReservationService.getByClientId(this.clientId).subscribe((response: any) => {
+    /*this.myReservationService.getByClientId(this.clientId).subscribe((response: any) => {
       this.rentsData = response;
-    })
+    })*/
   }
 
   compareDates(startDate: any, id: any) {
@@ -75,9 +74,9 @@ export class MyReservationsComponent implements OnInit {
   }
 
   async updateRate(id: any, rate: any){
-    await this.myReservationService.partialUpdate(id, {"rate":rate}).subscribe((response: any) => {
+    /*await this.myReservationService.partialUpdate(id, {"rate":rate}).subscribe((response: any) => {
       this.retrieveRentals();
-    });
+    });*/
   }
 
   changeDates(start: any, end: any, id: any, amount: any){

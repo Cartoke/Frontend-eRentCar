@@ -23,7 +23,7 @@
       "averageResponsibility": 85,
       "responseTime": 7,
       "rate": 4.2,
-      "imagePath": "",
+      "imagePath": "Juan.jpg",
       "planId": "2",
       "email": "martinque@gmail.com",
       "password": "martinque"
@@ -41,6 +41,20 @@
       "planId": "3",
       "email": "mariatrevi@gmail.com",
       "password": "mariatrevi"
+    },
+    {
+      "id": "9db6887b-29e5-479c-8540-fbf0427c98ed",
+      "names": "eliana",
+      "lastNames": "martinez",
+      "address": "Av. Sanchez",
+      "cellphoneNumber": "988122111",
+      "averageResponsibility": -1,
+      "responseTime": -1,
+      "rate": -1,
+      "imagePath": "",
+      "planId": "",
+      "email": "eliana@gmail.com",
+      "password": "Password1"
     }
   ],
   "languages": [
@@ -61,18 +75,7 @@
       "name": "French"
     }
   ],
-  "clientLanguages": [
-    {
-      "id": "1",
-      "clientId": "1",
-      "languageId": "English"
-    },
-    {
-      "id": "2",
-      "clientId": "1",
-      "languageId": "French"
-    }
-  ],
+  "clientLanguages": [],
   "clientSocialNetworks": [
     {
       "id": "1",
@@ -103,10 +106,10 @@
     {
       "id": "1",
       "address": "1011 C Alfredo Salazar San Isidro",
-      "brand": "Ford",
-      "year": 2021,
+      "brand": "Toyota",
+      "year": 2012,
       "model": "Focus",
-      "mileage": 10000,
+      "mileage": 90000,
       "seating": 4,
       "manual": false,
       "carValueInDollars": 13000,
@@ -130,7 +133,7 @@
       "imagePath": "chevrolet-cruze.jpg",
       "rate": 5,
       "rentAmountDay": 60,
-      "clientId": "1"
+      "clientId": "2"
     },
     {
       "id": "3",
@@ -335,11 +338,6 @@
   ],
   "favourites": [
     {
-      "carId": "1",
-      "clientId": "1",
-      "id": "3949f33e-27b9-4824-bc83-4593b207dd12"
-    },
-    {
       "carId": "4",
       "clientId": "2",
       "id": "00aa51fd-ea8d-4c10-ad8a-5afb27f06b83"
@@ -348,6 +346,11 @@
       "carId": "4",
       "clientId": "1",
       "id": "149b3fbd-c8c3-4091-9e06-3de46376e19d"
+    },
+    {
+      "carId": "1",
+      "clientId": "1",
+      "id": "dbf567db-3bff-4fce-8152-f625fdebd70c"
     }
   ]
 }

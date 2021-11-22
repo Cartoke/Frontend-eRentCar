@@ -22,9 +22,9 @@ export class ShowPlansComponent implements OnInit {
   }
 
   async addPlan(planId: any){
-    await this.clientService.partialUpdate(this.myId, {"planId": planId}).subscribe((response: any) => {
+    /*await this.clientService.partialUpdate(this.myId, {"planId": planId}).subscribe((response: any) => {
        this.updatePlanValueFromPlans(response.planId);
-    })
+    })*/
   }
 
 }
