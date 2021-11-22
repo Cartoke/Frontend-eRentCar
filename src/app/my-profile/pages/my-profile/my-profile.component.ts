@@ -44,14 +44,14 @@ export class MyProfileComponent implements OnInit {
     })
   }
   getCars() {
-    this.clientUsersService.getCarsByIdClient(this.currentUser).subscribe((response: any) => {
+    /*this.clientUsersService.getCarsByIdClient(this.currentUser).subscribe((response: any) => {
       this.userCars = response;
-    })
+    })*/
   }
   getComments() {
-    this.commentsServices.getCommentsByIdClient(this.currentUser).subscribe((response:any) => {
+    /*this.commentsServices.getCommentsByIdClient(this.currentUser).subscribe((response:any) => {
       this.userComments = response;
-    })
+    })*/
   }
   getLanguages() {
     this.languagesServices.getLanguagesByIdClient(this.currentUser).subscribe((response:any) => {

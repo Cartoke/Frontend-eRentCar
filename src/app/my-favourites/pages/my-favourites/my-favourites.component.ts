@@ -39,9 +39,9 @@ export class MyFavouritesComponent implements OnInit {
   }
 
   retrieveFavourites() {
-    this.clientService.getFavoritesByIdClient(this.clientId).subscribe((response: any) => {
+    /*this.clientService.getFavoritesByIdClient(this.clientId).subscribe((response: any) => {
       this.favouritesData = response;
       this.retrieveCars();
-    });
+    });*/
   }
 }

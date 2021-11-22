@@ -1,8 +1,9 @@
 export interface Rent {
-  id: string;
+  id: number;
   startDate: string;
   finishDate: string,
-  carId: string,
-  client: string,
-  paymentAmount: number;
+  amount: number;
+  rate: number;
+  clientId: number,
+  carId: number,
 }

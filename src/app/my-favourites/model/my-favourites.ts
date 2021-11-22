@@ -1,5 +1,4 @@
 export interface MyFavourites {
-  id: string
-  clientId: string | null,
-  carId: string
+  clientId: number | null,
+  carId: number
 }

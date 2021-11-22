@@ -9,7 +9,7 @@ import {MyFavourites} from "../model/my-favourites";
   providedIn: 'root'
 })
 export class MyFavouritesService {
-  basePath = "http://localhost:3000/api/v1/favourites"
+  basePath = "https://erentcar.herokuapp.com/api/v1/favourites"
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,51 +36,44 @@ export class MyFavouritesService {
     return throwError('Something happened with request, please try again later');
   }
 
-  // Create Favourite
-  create(item: any): Observable<MyFavourites> {
-    return this.http.post<MyFavourites>(this.basePath, JSON.stringify(item), this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
-  }
-
-  // Get Favourite by Id
-  getById(id: any): Observable<MyFavourites> {
-    return this.http.get<MyFavourites>(`${this.basePath}/${id}`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
-  }
-
-  // Get Favourite by CarId
-  getByCar(carId: any, userId: any): Observable<MyFavourites> {
-    return this.http.get<MyFavourites>(`${this.basePath}?carId=${carId}&clientId=${userId}`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
-  }
-
   // Get All Favourite
   getAll(): Observable<MyFavourites> {
     return this.http.get<MyFavourites>(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
-        catchError(this.handleError))
+        catchError(this.handleError));
   }
 
-  // Update Favourite
-  update(id: any, item: any): Observable<MyFavourites> {
-    return this.http.put<MyFavourites>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  // Get Favourite by Id
+  getById(id: any): Observable<MyFavourites> {
+    return this.http.get<MyFavourites>(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
-        catchError(this.handleError))
+        catchError(this.handleError));
+  }
+
+  // Get Favourite by CarId
+  getByClientId(clientId: any): Observable<MyFavourites> {
+    return this.http.get<MyFavourites>(`${ this.basePath }/client/${ clientId }`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
+  // Create Favourite
+  create(clientId: any, carId: any, item: any): Observable<MyFavourites> {
+    return this.http.post<MyFavourites>(
+      `${ this.basePath }/client/${ clientId }/car/${ carId }`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
   }
 
   // Delete Favourite
   delete(id: any): Observable<MyFavourites> {
-    return this.http.delete<MyFavourites>(`${this.basePath}/${id}`, this.httpOptions)
+    return this.http.delete<MyFavourites>(`${ this.basePath }/${ id }`, this.httpOptions)
       .pipe(
         retry(2),
-        catchError(this.handleError))
+        catchError(this.handleError));
   }
 }
