@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Client} from "../my-profile/model/client";
 import {ClientService} from "../my-profile/services/client.service";
 import {TokenStorageService} from "../api/token-storage.service";
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class ClientNavigationComponent implements OnInit {
   title = 'Clients-navigation';
-  currentClientId!: string | null;
+  currentClientId!: number;
   clientData!: Client;
   private roles: string[] | undefined;
   isLoggedIn = false;
@@ -31,17 +31,18 @@ export class ClientNavigationComponent implements OnInit {
               private tokenStorageService: TokenStorageService,
               private router: Router) {
     this.clientData = {} as Client;
-    this.currentClientId = localStorage.getItem("clientId");
+    this.currentClientId = JSON.parse(<string>localStorage.getItem("clientId"));
   }
 
   ngOnInit(): void {
-    //this.getClient();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.username = user.username;
+      this.getClient();
     }
+
   }
 
   getClient() {
@@ -51,7 +52,6 @@ export class ClientNavigationComponent implements OnInit {
   }
 
   signOut() {
-    //localStorage.removeItem("clientId");
     this.tokenStorageService.signOut();
     this.router.navigateByUrl("/login");
   }
