@@ -34,7 +34,7 @@ const routes: Routes = [
       {path: 'search', component: SearchCarComponent},
       {path: 'my-car',  component: MyCarComponent},
       {path: 'favourites', component: MyFavouritesComponent},
-      {path: 'rentals', component: MyRentalsComponent},
+      {path: 'my-car/:carId/my-rentals', component: MyRentalsComponent},
       {path: 'reservations', component: MyReservationsComponent},
       {path: 'subscription', component: SubscriptionComponent},
       {path: 'profile', component: MyProfileComponent},

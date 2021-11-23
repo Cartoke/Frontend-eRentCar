@@ -9,7 +9,7 @@
     <a [routerLink]="moreInformationUrl">See more</a>
   </div>
   <div class="rentInformation">
-    <span>
+    <span>[routerLink]="moreInformationUrl"
       Price for
       <mat-form-field appearance="fill" class="input-number">
         <input matInput type="number" placeholder="Ex. 2" min="1" [(ngModel)]="days">

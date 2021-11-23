@@ -21,7 +21,6 @@ export class ClientNavigationComponent implements OnInit {
     { name: "Search auto", url: 'search' },
     { name: "Reservations", url: 'reservations' },
     { name: "My cars", url: 'my-car' },
-    { name: "Rentals", url: 'rentals' },
     { name: "My Favourites", url: 'favourites' },
     { name: "Subscription", url: 'subscription' },
     { name: "My Profile", url: 'profile'}
@@ -51,7 +50,6 @@ export class ClientNavigationComponent implements OnInit {
   }
 
   signOut() {
-    //localStorage.removeItem("clientId");
     this.tokenStorageService.signOut();
     localStorage.removeItem('clientId');
     this.router.navigateByUrl("/login");
