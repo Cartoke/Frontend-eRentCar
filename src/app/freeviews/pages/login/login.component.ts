@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorageService.getUser().roles;
     }
+    if(localStorage.getItem('clientId')) {
+      this.router.navigateByUrl("/client/search");
+    }
   }
 
   submit(): void {

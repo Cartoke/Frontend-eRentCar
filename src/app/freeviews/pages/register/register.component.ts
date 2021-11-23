@@ -5,6 +5,7 @@ import {MatStepper} from "@angular/material/stepper";
 import { v4 as uuid } from 'uuid';
 import {Client} from "../../../my-profile/model/client";
 import {AuthService} from "../../../api/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private router: Router, private formBuilder: FormBuilder,
       private clientService: ClientService,
       private authService: AuthService
   ) {
@@ -38,6 +39,9 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      if(localStorage.getItem('clientId')) {
+        this.router.navigateByUrl("/client/search");
+      }
     }
 
   validateUser(stepper: MatStepper) {
