@@ -15,6 +15,7 @@ mat-card {
   width: 200px;
   margin: 0 auto;
   flex-direction: column;
+  background-color: #BDBDBD;
 }
 
 mat-card-actions {
