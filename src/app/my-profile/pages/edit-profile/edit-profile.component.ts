@@ -31,14 +31,4 @@ export class EditProfileComponent implements OnInit {
         console.log(response);
       });
   }
-
-  onselectFile(image: any) {
-    if (image.target.files) {
-      const reader = new FileReader();
-      reader.readAsDataURL(image.target.files[0]);
-      reader.onload = (event:any) => {
-        this.url = event.target.result;
-      }
-    }
-  }
 }
