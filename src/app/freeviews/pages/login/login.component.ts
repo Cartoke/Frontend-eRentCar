@@ -44,11 +44,11 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     if (this.form.valid) {
-      //console.log({username: this.form.value.userName, password: this.form.value.password});
       this.authService.login({username: this.form.value.userName, password: this.form.value.password}).subscribe(
         data => {
           this.tokenStorageService.saveToken(data.resource.token);
           this.tokenStorageService.saveUser(data.resource);
+          this.saveClientId(data.resource.id);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorageService.getUser().roles;
@@ -60,5 +60,16 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+
+  saveClientId(userId: number) {
+    this.clientService.getAll().subscribe((response: any) => {
+      for (let i = 0; response.content.length; i++) {
+        if (response.content[i].userId === userId) {
+          localStorage.setItem("clientId", response.content[i].id);
+          return;
+        }
+      }
+    });
   }
 }

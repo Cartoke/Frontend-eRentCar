@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ClientService} from "../../../my-profile/services/client.service";
 import {MatStepper} from "@angular/material/stepper";
-import { v4 as uuid } from 'uuid';
-import {Client} from "../../../my-profile/model/client";
 import {AuthService} from "../../../api/auth.service";
 import {Router} from "@angular/router";
 
@@ -16,8 +14,6 @@ export class RegisterComponent implements OnInit {
   showPassword: Boolean = false;
   userNameAndPasswordForm: FormGroup;
   personalInformationForm: FormGroup;
-  isSuccessful = false;
-  isSignUpFailed = false;
   errorMessage = '';
 
     constructor(private router: Router, private formBuilder: FormBuilder,

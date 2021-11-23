@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PlansService} from "../../services/plans.service";
 import {Plan} from "../../model/plan";
-import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../../my-profile/services/client.service";
 import {Client} from "../../../my-profile/model/client";
-import {Parser} from "@angular/compiler";
 
 @Component({
   selector: 'app-subscription',
@@ -16,35 +14,35 @@ export class SubscriptionComponent implements OnInit {
   clientData!: Client;
 
   constructor(
-    private subscriptionService: PlansService,
+    private plansService: PlansService,
     private clientService: ClientService,
-  )  { }
+  )  {
+  }
 
   ngOnInit(): void {
     this.retrievePlans();
     this.retrieveClient();
   }
 
-  retrieveClient(): void {
-
-    /*let clientId: number =  JSON.parse(localStorage.getItem('clientId') ? "" : localStorage.getItem('clientId')).id;
+  retrieveClient() {
+    const clientId = parseInt(<string>localStorage.getItem("clientId"));
 
     this.clientService.getById(clientId).subscribe((response: any) => {
       this.clientData = response;
-    });*/
+    })
   }
 
   retrievePlans() {
-    /*this.subscriptionService.getPlans().subscribe((response: any) => {
-      this.plans = response;
-    });*/
+    this.plansService.getAll().subscribe((response: any) => {
+      this.plans = response.content;
+    });
   }
 
-  deletePlanStatusChange(ev: any) {
-    this.clientData.planId = ev;
+  deletePlanStatusChange() {
+    this.clientData.planId = Number.NaN;
   }
 
-  createPlanStatusChange(ev: any) {
+  createPlanStatusChange(ev: number) {
     this.clientData.planId = ev;
   }
 }

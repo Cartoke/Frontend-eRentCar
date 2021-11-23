@@ -67,8 +67,8 @@ export class ClientService {
       );
   }
 
-  updatePlan(clientId: any, planId: any, item: any): Observable<Client> {
-    return this.http.put<Client>(`${ this.basePath }/${ clientId }/plan/${ planId }`, JSON.stringify(item), this.httpOptions)
+  updatePlan(clientId: any, planId: any): Observable<Client> {
+    return this.http.put<Client>(`${ this.basePath }/${ clientId }/plan/${ planId }`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

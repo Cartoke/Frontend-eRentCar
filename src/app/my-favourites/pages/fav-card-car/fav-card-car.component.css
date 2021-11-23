@@ -1,19 +1,13 @@
-.container {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto 0;
-  padding: 20px;
-  flex-direction: column;
-}
-
-.container-data {
-  width: 100%;
+mat-card {
+  margin-bottom: 8px;
+  min-height: 200px;
+  max-height: 350px;
   display: grid;
   grid-template-areas: "image content rent";
-  grid-template-columns: 250px minmax(auto, 300px) auto;
+  grid-template-columns: 200px minmax(auto, 300px) auto;
 }
 
-img {
+mat-card > img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,6 +22,6 @@ img {
   margin-left: 20px;
 }
 
-mat-drawer-content {
-  padding: 10px;
+span {
+  display: block;
 }

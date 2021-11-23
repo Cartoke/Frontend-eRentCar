@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
@@ -38,13 +37,10 @@ import { EditCarDialogComponent} from "./my-car/pages/edit-car-dialog/edit-car-d
 import {MatRadioModule} from "@angular/material/radio";
 import { CardMySubscriptionComponent } from './subscription/pages/card-my-subscription/card-my-subscription.component';
 import { ShowPlansComponent } from './subscription/pages/show-plans/show-plans.component';
-
 import { ViewCarComponent } from './my-car/pages/view-car/view-car.component';
 import { MyCommentsComponent } from './my-profile/pages/my-comments/my-comments.component';
 import { MyLanguageComponent } from './my-profile/pages/my-language/my-language.component';
 import { MySocialComponent } from './my-profile/pages/my-social/my-social.component';
-
-
 import { FavCardCarComponent } from './my-favourites/pages/fav-card-car/fav-card-car.component';
 import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
@@ -56,8 +52,6 @@ import { DeleteDialogComponent } from './my-reservations/pages/delete-dialog/del
 import { EditDateDialogComponent } from './my-reservations/pages/edit-date-dialog/edit-date-dialog.component';
 import { EditProfileComponent } from './my-profile/pages/edit-profile/edit-profile.component';
 import {authInterceptorProviders} from "./api/auth-interceptor.service";
-import { LogoutComponent } from './api/logout/logout.component';
-import { RegisterApiComponent } from './api/register/register-api.component';
 
 @NgModule({
   declarations: [
@@ -88,8 +82,6 @@ import { RegisterApiComponent } from './api/register/register-api.component';
     DeleteDialogComponent,
     EditDateDialogComponent,
     EditProfileComponent,
-    LogoutComponent,
-    RegisterApiComponent
   ],
   imports: [
     BrowserModule,

@@ -9,8 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./view-car.component.css']
 })
 export class ViewCarComponent implements OnInit {
-  @Input() userCar !: Car;
-  @Input() userId !: string | null;
+  @Input() car !: Car;
+  @Input() clientId !: number;
   moreInformation !: string;
 
   constructor(private clientService: ClientService, private router: Router) {
@@ -18,10 +18,6 @@ export class ViewCarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.moreInformation = `${this.router.url}/car/${this.userCar.id}`;
+    this.moreInformation = `${this.router.url}/car/${this.car.id}`;
   }
-
-
-
-
 }
