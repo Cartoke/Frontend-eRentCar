@@ -46,8 +46,6 @@ import { MySocialComponent } from './my-profile/pages/my-social/my-social.compon
 
 
 import { FavCardCarComponent } from './my-favourites/pages/fav-card-car/fav-card-car.component';
-import { HomeComponent } from './freeviews/pages/home/home.component';
-import { AboutComponent } from './freeviews/pages/about/about.component';
 import {LoginComponent} from "./freeviews/pages/login/login.component";
 import { RegisterComponent } from './freeviews/pages/register/register.component';
 import { FreeviewComponent } from './freeviews/pages/freeview/freeview.component';
@@ -84,8 +82,6 @@ import { RegisterApiComponent } from './api/register/register-api.component';
     MyLanguageComponent,
     MySocialComponent,
     FavCardCarComponent,
-    HomeComponent,
-    AboutComponent,
     LoginComponent,
     RegisterComponent,
     FreeviewComponent,
