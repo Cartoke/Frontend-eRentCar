@@ -11,7 +11,7 @@ import {EditDateDialogComponent} from "../edit-date-dialog/edit-date-dialog.comp
 })
 export class MyReservationsComponent implements OnInit {
 
-  //rentsData: MyReservations[];
+  rentsData: []//MyReservations[];
   displayedColumns: string[];
   clientId!: string | null;
   today: Date;
@@ -28,12 +28,12 @@ export class MyReservationsComponent implements OnInit {
   ]
 
   constructor(
-    //private myReservationService: RentsService,
+    private myReservationService: RentCarService,
     private dialog: MatDialog
   ) {
-    //this.rentsData = [];
+    this.rentsData = [];
     this.clientId = localStorage.getItem('clientId');
-    this.displayedColumns = ['car', 'name', 'rate', 'startDate','finishDate','paymentAmount','actions']
+    this.displayedColumns = ['rate', 'startDate','finishDate','amount','actions']
     this.today = new Date();
     this.deleted = false;
     this.changed = false;
@@ -45,12 +45,13 @@ export class MyReservationsComponent implements OnInit {
   }
 
   retrieveRentals(){
-    /*this.myReservationService.getByClientId(this.clientId).subscribe((response: any) => {
-      this.rentsData = response;
-    })*/
+    this.myReservationService.getAll().subscribe((response: any) => {
+      console.log(response)
+      this.rentsData = response.content.filter((res: any) => res.clientId == this.clientId);
+    })
   }
 
-  compareDates(startDate: any, id: any) {
+  compareDates(startDate: any, id: any, rent: any) {
     const tempArray = startDate.split('/');
     const formattedStartDate = new Date(tempArray[2],tempArray[1] - 1,tempArray[0]);
 
@@ -58,7 +59,8 @@ export class MyReservationsComponent implements OnInit {
       const dialogRef = this.dialog.open(DeleteDialogComponent, {
                           data: {
                             id: id,
-                            deleted: this.deleted
+                            deleted: this.deleted,
+                            rent: rent
                           }
                         });
 
@@ -73,13 +75,18 @@ export class MyReservationsComponent implements OnInit {
       alert("You cannot delete this rent, because the dates are past")
   }
 
-  async updateRate(id: any, rate: any){
-    /*await this.myReservationService.partialUpdate(id, {"rate":rate}).subscribe((response: any) => {
+  async updateRate(rent: any,id: any, rate: any){
+    await this.myReservationService.update(id, {
+      startDate: rent.startDate,
+      finishDate: rent.finishDate,
+      amount: rent.amount,
+      rate
+    }).subscribe((response: any) => {
       this.retrieveRentals();
-    });*/
+    });
   }
 
-  changeDates(start: any, end: any, id: any, amount: any){
+  changeDates(start: any, end: any, id: any, amount: any, rate: any){
     const tempArray = start.split('/');
     const formattedStartDate = new Date(tempArray[2],tempArray[1] - 1,tempArray[0]);
 
@@ -90,19 +97,23 @@ export class MyReservationsComponent implements OnInit {
           start: start,
           end: end,
           amount: amount,
-          changed: this.changed
+          rate,
+          clientId: this.clientId,
+          changed: this.changed,
+
         }
       });
 
       dialogRef.afterClosed().subscribe((result) => {
         this.changed = result
+        console.log(result)
         if(result){
           this.retrieveRentals()
         }
       });
     }
     else
-      alert("You cannot delete this rent, because the dates are past")
+      alert("You cannot changes the dates in this rent, because is too late")
   }
 
 

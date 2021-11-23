@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {RentCarService} from "../../../search-car/services/rent-car.service";
 //import {RentsService} from "../../services/rents.service";
 
 export interface DialogData {
@@ -14,7 +15,7 @@ export interface DialogData {
 })
 export class DeleteDialogComponent implements OnInit {
   constructor(
-    //private myReservationService: RentsService,
+    private myReservationService: RentCarService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
   }
@@ -24,9 +25,9 @@ export class DeleteDialogComponent implements OnInit {
   }
 
   async deleteRental(){
-    /*await this.myReservationService.delete(this.data.id).subscribe((response:any) => {
+    await this.myReservationService.delete(this.data.id).subscribe((response:any) => {
       this.data.deleted = true;
-    })*/
+    })
   }
 
 }

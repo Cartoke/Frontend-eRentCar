@@ -1,5 +1,14 @@
 <mat-card>
   <img src="{{ car.imagePath }}" alt="car image">
+  <div class="container-my-rentals">
+    <button
+      [routerLink]="rentalsUrl"
+      mat-raised-button
+      class="edit-button mat-warn"
+    >
+      My Rentals
+    </button>
+  </div>
   <div class="car-information">
     <mat-card-title>{{ car.brand }} {{ car.model }}</mat-card-title>
     <span>Seating: {{ car.seating }}</span>
@@ -17,4 +26,6 @@
       Edit
     </button>
   </div>
+
 </mat-card>
+

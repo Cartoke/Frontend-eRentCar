@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Car} from "../../../search-car/model/car";
 import {ClientService} from "../../../my-profile/services/client.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -21,7 +21,8 @@ export class MyCarComponent implements OnInit {
               private carsService: CarsService,
               private carModelsService: CarModelsService,
               private carBrandsService: CarBrandsService,
-              private editCarDialog: MatDialog) {
+              private editCarDialog: MatDialog,
+              ) {
     this.clientId = parseInt(<string>localStorage.getItem('clientId'));
   }
 
@@ -51,6 +52,7 @@ export class MyCarComponent implements OnInit {
       this.clientCars[index].brand = response.name;
     });
   }
+
 
   openEditDialogCar(): void {
     const dialogRef = this.editCarDialog.open(EditCarDialogComponent, {

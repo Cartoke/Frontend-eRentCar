@@ -2,13 +2,16 @@ import {Component, Inject, OnInit} from '@angular/core';
 //import {RentsService} from "../../services/rents.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {FormControl, FormGroup} from "@angular/forms";
+import {RentCarService} from "../../../search-car/services/rent-car.service";
 
 export interface DialogData {
   id: string,
   changed: boolean,
   start: string,
   end: string,
-  amount: number
+  amount: number,
+  rate: number,
+  clientId: number
 }
 
 @Component({
@@ -21,10 +24,10 @@ export class EditDateDialogComponent implements OnInit {
   formattedStartDate: any;
   formattedFinishDate: any;
   tempArrayStart: any;
-  tempArrayFinish: any
+  tempArrayFinish: any;
 
   constructor(
-    //private myReservationService: RentsService,
+    private myReservationService: RentCarService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
     this.tempArrayStart = this.data.start.split('/');
@@ -70,16 +73,17 @@ export class EditDateDialogComponent implements OnInit {
   }
 
   async updateDates() {
-    /*await this.myReservationService.partialUpdate(
+    await this.myReservationService.update(
       this.data.id, {
-        "startDate": this.getDateFormat(this.date.value.start),
-        "endDate": this.getDateFormat(this.date.value.end),
-        "paymentAmount": this.getPaymentAmount()
+        startDate: this.getDateFormat(this.date.value.start),
+        finishDate: this.getDateFormat(this.date.value.end),
+        amount: this.getPaymentAmount(),
+        rate: this.data.rate,
       })
       .subscribe((response: any) => {
         console.log(response)
         this.data.changed = true
-      });*/
+      });
   }
 
 }
