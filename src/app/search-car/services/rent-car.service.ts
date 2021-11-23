@@ -8,7 +8,7 @@ import {Rent} from "../model/rent";
   providedIn: 'root'
 })
 export class RentCarService {
-  basePath =  "https://localhost:8080/api/v1/rents";//"https://erentcar.herokuapp.com/api/v1/rents";
+  basePath =  "https://erentcar.herokuapp.com/api/v1/rents";
 
   httpOptions = {
     headers: new HttpHeaders({
