@@ -1,7 +1,11 @@
 <div class="container">
-  <h1>My Favorites:</h1>
+  <div class="header">
+    <h1>My favourites</h1>
+  </div>
+  <mat-divider></mat-divider>
   <app-fav-card-car
     *ngFor="let car of carsData"
     [car]="car"
-  ></app-fav-card-car>
+  >
+  </app-fav-card-car>
 </div>
