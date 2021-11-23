@@ -1,15 +1,15 @@
 <div class="container">
   <div class="actions">
     <button mat-raised-button (click)="goBack()">Back</button>
-    <!--<button
+    <button
       id="favorite-button"
       mat-fab
       [color]="isFavourite ? 'warn' : 'gray'"
       aria-label=favorite
-      (click)="actionFavourite(favourite.id)"
+      (click)="actionFavourite(favourite.carId)"
     >
       <mat-icon>favorite_border</mat-icon>
-    </button>-->
+    </button>
   </div>
   <mat-divider></mat-divider>
   <div class="container-data">

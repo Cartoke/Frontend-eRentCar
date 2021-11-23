@@ -16,16 +16,16 @@ import {MyFavourites} from "../../../my-favourites/model/my-favourites";
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-  carId!: string;
+  carId!: number;
   carData!: Car;
-  clientId!: string | null;
+  clientId!: number;
   days: number = 1;
 
-  /*isFavourite = false;
+  isFavourite = false;
   favourite: MyFavourites = {
     clientId: 0,
     carId: 0
-  };*/
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -36,8 +36,8 @@ export class CarComponent implements OnInit {
     private carModelsService: CarModelsService,
     private carBrandsService: CarBrandsService,
   ) {
-    this.carId = this.route.snapshot.params.carId;
-    this.clientId = localStorage.getItem('clientId');
+    this.carId = parseInt(this.route.snapshot.params.carId);
+    this.clientId = parseInt(<string>localStorage.getItem('clientId'));
     this.carData = {} as Car
   }
 
@@ -67,12 +67,13 @@ export class CarComponent implements OnInit {
   }
 
   getFavourites() {
-    /*this.favouriteService.getByCar(this.carId, this.clientId).subscribe((response: any) => {
-      if(response.length > 0){
-        this.isFavourite = true;
-        this.favourite = response[0];
+    this.favouriteService.getByClientId(this.clientId).subscribe((response: any) => {
+      for (let i = 0; i < response.content.length; i++) {
+        if (response.content[i].carId == this.carId) {
+          this.isFavourite = true;
+        }
       }
-    });*/
+    });
   }
 
   getPrice(): number {
@@ -93,24 +94,25 @@ export class CarComponent implements OnInit {
     });
   }
 
-  /*addFavourite() {
+  addFavourite() {
     this.favourite.carId = this.carId;
     this.favourite.clientId = this.clientId;
-    this.favourite.id = uuid();
 
-    this.favouriteService.create(this.favourite).subscribe((response: any) => {
-      this.isFavourite = true;
-      this.favourite = response;
-    })
+    this.favouriteService
+      .create(this.favourite.clientId, this.favourite.carId)
+      .subscribe((response: any) => {
+        this.isFavourite = true;
+        this.favourite = response;
+    });
   }
 
-  deleteFavourite(id: string) {
+  deleteFavourite(id: number) {
     this.favouriteService.delete(id).subscribe((response: any) => {
       this.isFavourite = false;
-    })
+    });
   }
 
-  actionFavourite(id: string) {
+  actionFavourite(id: number) {
     if (this.isFavourite) {
       this.deleteFavourite(id);
     }
@@ -118,5 +120,4 @@ export class CarComponent implements OnInit {
       this.addFavourite();
     }
   }
-  */
 }
