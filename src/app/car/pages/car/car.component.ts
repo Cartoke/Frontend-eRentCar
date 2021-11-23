@@ -23,6 +23,7 @@ export class CarComponent implements OnInit {
 
   isFavourite = false;
   favourite: MyFavourites = {
+    id: 0,
     clientId: 0,
     carId: 0
   };
@@ -112,9 +113,15 @@ export class CarComponent implements OnInit {
     });
   }
 
-  actionFavourite(id: number) {
+  actionFavourite() {
     if (this.isFavourite) {
-      this.deleteFavourite(id);
+      this.favouriteService.getByClientId(this.clientId).subscribe((response: any) => {
+        for (let i = 0; i < response.content.length; i++) {
+          if (response.content[i].carId == this.carId) {
+            this.deleteFavourite(response.content[i].id);
+          }
+        }
+      });
     }
     else {
       this.addFavourite();
