@@ -168,6 +168,23 @@
       "clientId": "2"
     }
   ],
+  "my-messages": [
+    {
+      "id": "1",
+      "description": "INTENTO 1",
+      "message": "HOLA"
+    },
+    {
+      "id": "1",
+      "description": "INTENTO 2",
+      "message": "HOLAA"
+    },
+    {
+      "id": "1",
+      "description": "INTENTO 3",
+      "message": "HOLAAA"
+    }
+  ],
   "mechanicConditions": [
     {
       "id": "1",
