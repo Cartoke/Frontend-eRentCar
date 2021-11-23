@@ -53,6 +53,7 @@ export class ClientNavigationComponent implements OnInit {
 
   signOut() {
     this.tokenStorageService.signOut();
+    localStorage.removeItem('clientId');
     this.router.navigateByUrl("/login");
   }
 }

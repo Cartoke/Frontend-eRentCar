@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorageService.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorageService.getUser().roles;
+
     }
   }
   onSubmit(email: any, password: any): void {

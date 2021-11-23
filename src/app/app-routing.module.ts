@@ -20,7 +20,8 @@ const routes: Routes = [
     path: '',
     component: FreeviewComponent,
     children: [
-      {path: '',  component: HomeComponent},
+      {path: '',  component: LoginComponent},
+      {path: 'home',  component: HomeComponent},
       {path: 'about',  component: AboutComponent},
       {path: 'login',  component: LoginComponent},
       {path: 'register',  component: RegisterComponent},
